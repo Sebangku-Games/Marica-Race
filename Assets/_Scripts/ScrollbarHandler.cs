@@ -7,10 +7,8 @@ public class ScrollbarHandler : MonoBehaviour
 {
     [Header("Scroll Bar Yellow Area")]
     public Scrollbar scrollBarArea;
-    [SerializeField] private float scrollBarAreaSize = 0.25f;
     [Header("Scroll Bar Green Area")]
     public Scrollbar scrollBarAreaInside;
-    [SerializeField] private float scrollBarAreaInsideSize = 0.25f;
     [Header("Scroll Bar Pointer")]
     public Scrollbar scrollBarPointer;
     [SerializeField] private float duration = 2f;
@@ -30,7 +28,7 @@ public class ScrollbarHandler : MonoBehaviour
     {
         // Check if the scrollBarPointer is in the yellow area
         if(Input.GetKeyDown(KeyCode.A)){
-            CheckYellowArea();
+            StartCoroutine(PlayerInput());
         }
     }
 
@@ -103,22 +101,47 @@ public class ScrollbarHandler : MonoBehaviour
     // Check ScrollBar Pointer if in yellow area (scrollbar area)
     public void CheckYellowArea()
     {
-        // If the value is inside size of scrollbar area, then it's in the yellow area
-        if (scrollBarPointer.value >= scrollBarArea.value - scrollBarAreaSize && scrollBarPointer.value <= scrollBarArea.value + scrollBarAreaSize)
+        // Calculate the range for the yellow area
+        float yellowAreaStart = scrollBarArea.value - scrollBarArea.size / 2;
+        float yellowAreaEnd = scrollBarArea.value + scrollBarArea.size / 2;
+
+        // If the value is inside the yellow area range, then it's in the yellow area
+        if (scrollBarPointer.value >= yellowAreaStart && scrollBarPointer.value <= yellowAreaEnd)
         {
             Debug.Log("In Yellow Area");
             // Debug value
-            Debug.Log("scrollBarArea.value: " + scrollBarArea.value);
-            Debug.Log("scrollBarPointer.value: " + scrollBarPointer.value);
+            Debug.Log("scrollBarArea.value: " + scrollBarArea.value.ToString("F2"));
+            Debug.Log("scrollBarPointer.value: " + scrollBarPointer.value.ToString("F2"));
         }
         else
         {
             Debug.Log("Not in Yellow Area");
             // Debug value
-            Debug.Log("scrollBarArea.value: " + scrollBarArea.value);
-            Debug.Log("scrollBarPointer.value: " + scrollBarPointer.value);
+            Debug.Log("scrollBarArea.value: " + scrollBarArea.value.ToString("F2"));
+            Debug.Log("scrollBarPointer.value: " + scrollBarPointer.value.ToString("F2"));
         }
     }
 
+
+    IEnumerator PlayerInput()
+    {
+        // stop the scroll bar pointer lerping
+        isLerping = false;
+        
+        // check if the scroll bar pointer is in the yellow area
+        CheckYellowArea();
+
+        // wait for 1 second
+        yield return new WaitForSeconds(1f);
+
+        // start the scroll bar pointer lerping again
+        isLerping = true;
+
+        // start the initial lerping
+        StartCoroutine(LerpScrollBarPointerCoroutine());
+
+        
+
+    }
 
 }
