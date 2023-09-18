@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 public class ScrollbarHandler : MonoBehaviour
 {
+    [SerializeField] private float forgiveOffset = 0.01f;
+
     [Header("Scroll Bar Yellow Area")]
     public Scrollbar scrollBarArea;
+    public float[] scrollBarAreaValues = {0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 
+                                          0.6f, 0.7f, 0.8f, 0.9f, 1f};
+
     [Header("Scroll Bar Green Area")]
     public Scrollbar scrollBarAreaInside;
+    public float[] scrollBarAreaInsideValues = {0.25f, 0.5f, 0.75f, 1f};
+    
     [Header("Scroll Bar Pointer")]
     public Scrollbar scrollBarPointer;
     [SerializeField] private float duration = 2f;
@@ -18,7 +25,11 @@ public class ScrollbarHandler : MonoBehaviour
     void Start()
     {
         // Set the scroll bar value to random
-        RandomScrollBarArea();
+        //RandomScrollBarArea();
+
+        // Set the scroll bar value to test
+        SetTestArea();
+
         // Start the initial lerping
         StartCoroutine(LerpScrollBarPointerCoroutine());
     }
@@ -35,11 +46,16 @@ public class ScrollbarHandler : MonoBehaviour
     // Set scrollBarArea's value to random number and save the number
     public void RandomScrollBarArea()
     {
-        int randomNumber = Random.Range(0, 101);
-        int randomNumber2 = Random.Range(0, 11);
-        // Adjust the randomNumber to 0 ~ 1 for the slider value
-        scrollBarArea.value = randomNumber / 100f;
-        scrollBarAreaInside.value = randomNumber2 / 10f;
+        int randomNumber = Random.Range(0, scrollBarAreaValues.Length);
+        scrollBarArea.value = scrollBarAreaValues[randomNumber];
+
+        int randomNumber2 = Random.Range(0, scrollBarAreaInsideValues.Length);
+        scrollBarAreaInside.value = scrollBarAreaInsideValues[randomNumber2];
+    }
+
+    public void SetTestArea(){
+        scrollBarArea.value = 0.5f;
+        scrollBarAreaInside.value = 0.5f;
     }
 
     // Make function to Lerp scrollBarPointer from 0 to 100 and assign it to scrollBarPointer's value
@@ -105,22 +121,47 @@ public class ScrollbarHandler : MonoBehaviour
         float yellowAreaStart = scrollBarArea.value - scrollBarArea.size / 2;
         float yellowAreaEnd = scrollBarArea.value + scrollBarArea.size / 2;
 
-        // If the value is inside the yellow area range, then it's in the yellow area
-        if (scrollBarPointer.value >= yellowAreaStart && scrollBarPointer.value <= yellowAreaEnd)
+        // Ensure that the scrollbar values are clamped to the valid range [0, 1]
+        float clampedScrollBarValue = Mathf.Clamp(scrollBarPointer.value, 0f, 1f);
+
+        if (scrollBarArea.value == 0f || scrollBarArea.value == 1f)
         {
-            Debug.Log("In Yellow Area");
-            // Debug value
-            Debug.Log("scrollBarArea.value: " + scrollBarArea.value.ToString("F2"));
-            Debug.Log("scrollBarPointer.value: " + scrollBarPointer.value.ToString("F2"));
+            // Special handling for minimum and maximum values
+            if (clampedScrollBarValue >= yellowAreaStart || clampedScrollBarValue <= yellowAreaEnd)
+            {
+                Debug.Log("In Yellow Area");
+                // Debug values
+                Debug.Log("scrollBarArea.value: " + scrollBarArea.value);
+                Debug.Log("scrollBarPointer.value: " + clampedScrollBarValue);
+            }
+            else
+            {
+                Debug.Log("Not in Yellow Area");
+                // Debug values
+                Debug.Log("scrollBarArea.value: " + scrollBarArea.value);
+                Debug.Log("scrollBarPointer.value: " + clampedScrollBarValue);
+            }
         }
         else
         {
-            Debug.Log("Not in Yellow Area");
-            // Debug value
-            Debug.Log("scrollBarArea.value: " + scrollBarArea.value.ToString("F2"));
-            Debug.Log("scrollBarPointer.value: " + scrollBarPointer.value.ToString("F2"));
+            if (clampedScrollBarValue >= yellowAreaStart && clampedScrollBarValue <= yellowAreaEnd)
+            {
+                Debug.Log("In Yellow Area");
+                // Debug values
+                Debug.Log("scrollBarArea.value: " + scrollBarArea.value);
+                Debug.Log("scrollBarPointer.value: " + clampedScrollBarValue);
+            }
+            else
+            {
+                Debug.Log("Not in Yellow Area");
+                // Debug values
+                Debug.Log("scrollBarArea.value: " + scrollBarArea.value);
+                Debug.Log("scrollBarPointer.value: " + clampedScrollBarValue);
+            }
         }
     }
+
+
 
 
     IEnumerator PlayerInput()
