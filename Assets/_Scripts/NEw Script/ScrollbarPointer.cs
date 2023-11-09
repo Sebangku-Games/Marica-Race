@@ -5,6 +5,16 @@ using UnityEngine;
 
 public class ScrollbarPointer : MonoBehaviour
 {
+    [Header("Yellow Area")]
+    [SerializeField] private Transform yellowArea;
+    private float[] yellowPossiblePosition = { -0.35f, -0.25f, -0.15f, -0.05f, 0.05f, 0, 0.15f, 0.25f, 0.35f };
+
+    [Header("Green Area")]
+    [SerializeField] private Transform greenArea;
+    private float[] greenPossiblePosition = { -0.25f, -0.125f, 0, 0.125f, 0.25f };
+
+
+    [Header("Pointer")]
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float radius = 0.01f;
     private bool greenAreaDetected = false;
@@ -99,7 +109,21 @@ public class ScrollbarPointer : MonoBehaviour
         ToggleLerping();
         Debug.Log("Player input in area : " + currentArea);
         yield return new WaitForSeconds(1f);
+        ChangeYellowAreaTransform();
+        ChangeGreenAreaTransform();
         ToggleLerping();
+    }
+
+    private void ChangeYellowAreaTransform(){
+        // change yellow area x position to random from random possible position
+        float randomX = yellowPossiblePosition[UnityEngine.Random.Range(0, yellowPossiblePosition.Length)];
+        yellowArea.localPosition = new Vector3(randomX, yellowArea.position.y, yellowArea.position.z);
+    }
+
+    private void ChangeGreenAreaTransform(){
+        // change green area x position to random from random possible position
+        float randomX = greenPossiblePosition[UnityEngine.Random.Range(0, greenPossiblePosition.Length)];
+        greenArea.localPosition = new Vector3(randomX, greenArea.position.y, greenArea.position.z);
     }
 
     private void GetArea(string area){

@@ -465,6 +465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5c6f478cbdd2a469f0490839fe9e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yellowArea: {fileID: 4310209291552372107}
+  yellowAreaInitialOffset: -0.4
+  yellowAreaTargetOffset: 0.4
+  greenArea: {fileID: 4310209291963440382}
+  greenAreaInitialOffset: -0.25
+  greenAreaTargetOffset: 0.25
   layerMask:
     serializedVersion: 2
     m_Bits: 896
