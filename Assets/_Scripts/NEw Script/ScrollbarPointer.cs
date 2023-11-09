@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,35 @@ public class ScrollbarPointer : MonoBehaviour
     private bool greenAreaDetected = false;
     private bool yellowAreaDetected = false;
 
+    [SerializeField] private float duration = 2f;
+    private bool isLerping = true; // Flag to control lerping
+
+    private float initialOffset = -1f;
+    private float targetOffset = 1f;
+    private Vector3 initialPosition;
+    private Vector3 targetPosition;
+    private string currentArea;
+
     
+    private void Start()
+    {
+        initialPosition = new Vector3(initialOffset, transform.position.y, transform.position.z);
+        targetPosition = new Vector3(targetOffset, transform.position.y, transform.position.z);
+    }
+
 
     private void Update()
     {
         CheckScrollBarPointer();
+
+        // If isLerping is true, lerp the position of the GameObject
+        if (isLerping)
+        {
+            float t = Mathf.PingPong(Time.time / duration, 1.0f); // PingPong between 0 and 1
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+        }
+
+        CheckPlayerInput();
     }
 
     public void CheckScrollBarPointer()
@@ -29,14 +54,16 @@ public class ScrollbarPointer : MonoBehaviour
             {
                 if (col.gameObject.CompareTag("GreenArea"))
                 {
-                    Debug.Log("Green Area");
+                    //Debug.Log("Green Area");
+                    GetArea("Green Area");
                     greenAreaDetected = true;
                 } 
                 else if (col.gameObject.CompareTag("YellowArea"))
                 {
                     if (!greenAreaDetected)
                     {
-                        Debug.Log("Yellow Area");
+                        //Debug.Log("Yellow Area");
+                        GetArea("Yellow Area");
                         yellowAreaDetected = true;
                     }
                 }
@@ -45,7 +72,8 @@ public class ScrollbarPointer : MonoBehaviour
             // If neither green nor yellow area is detected, you can consider it as the "Red Area."
             if (!greenAreaDetected && !yellowAreaDetected)
             {
-                Debug.Log("Red Area");
+                //Debug.Log("Red Area");
+                GetArea("Red Area");
             }
         }
 
@@ -54,6 +82,27 @@ public class ScrollbarPointer : MonoBehaviour
         yellowAreaDetected = false;
     }
 
+    public void ToggleLerping()
+    {
+        // Toggle the isLerping flag to start/stop lerping
+        isLerping = !isLerping;
+    }
 
-    
+    public void CheckPlayerInput(){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(PlayerInputCoroutine());
+        }
+    }
+
+    IEnumerator PlayerInputCoroutine(){
+        ToggleLerping();
+        Debug.Log("Player input in area : " + currentArea);
+        yield return new WaitForSeconds(1f);
+        ToggleLerping();
+    }
+
+    private void GetArea(string area){
+        currentArea = area;
+    }
 }
