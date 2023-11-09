@@ -15,6 +15,8 @@ public class NewScrollbarHandler : MonoBehaviour
     public Scrollbar scrollBarPointer;
     [SerializeField] private float duration = 2f;
 
+    [SerializeField] private LayerMask layerMask;
+
     private void Start()
     {
         // start the initial lerping
@@ -24,6 +26,8 @@ public class NewScrollbarHandler : MonoBehaviour
     private void Update()
     {
         CheckScrollBarPointer();
+
+        
     }
 
 
@@ -31,24 +35,33 @@ public class NewScrollbarHandler : MonoBehaviour
     // make function that check if scrollBarPointer overlap with other scrollbararea
     public void CheckScrollBarPointer()
     {
-        // check if scrollBarPointer is in the yellow area
-        if (scrollBarPointer.value >= scrollBarYellowArea.value - 0.1f && scrollBarPointer.value <= scrollBarYellowArea.value + 0.1f)
+        // Calculate the position to cast the raycast from
+        Vector3 raycastPosition = scrollBarPointer.transform.position;
+        Collider[] collider = Physics.OverlapSphere(raycastPosition, 0.1f, layerMask);
+
+        if (collider != null)
         {
-            // check if scrollBarPointer is in the green area
-            if (scrollBarPointer.value >= scrollBarGreenArea.value - 0.1f && scrollBarPointer.value <= scrollBarGreenArea.value + 0.1f)
+            foreach (Collider col in collider)
             {
-                Debug.Log("You are in the green area");
+                Debug.Log("There is a collider");
+                if (col.gameObject.CompareTag("GreenArea"))
+                {
+                    Debug.Log("Green Area");
+                }
+                else if (col.gameObject.CompareTag("YellowArea"))
+                {
+                    Debug.Log("Yellow Area");
+                }
+                // else if (col.gameObject.CompareTag("RedArea"))
+                // {
+                //     Debug.Log("Red Area");
+                // }
             }
-            else
-            {
-                Debug.Log("You are in the yellow area");
-            }
-        }
-        else
-        {
-            Debug.Log("You are in the red area");
+
+            //Debug.Log("Red Area");
         }
     }
+    
 
 
     // make function / coroutine that lerp scrollbar pointer left and right
