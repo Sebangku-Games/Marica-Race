@@ -5,32 +5,28 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Scrollbar scrollBarImage;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // set the scroll bar value to random
-        RandomNumber();
-    }
-
-
-    // make random number and assign it to slider value
-    public void RandomNumber()
-    {
-        int randomNumber = Random.Range(0, 100);
-        // adjust the randomNumber to 0 ~ 1 for the slider value
-        scrollBarImage.value = randomNumber / 100f;
-    }
-
+    [SerializeField] private float durationLerp = 1f;
     
-    public void ShowBarImage()
+
+    public void MoveToRightScreen(float distance)
     {
-        scrollBarImage.gameObject.SetActive(true);
+        Vector3 targetPosition = transform.position + transform.right * distance;
+        StartCoroutine(LerpToPosition(targetPosition, durationLerp));
     }
 
-    public void HideBarImage()
+    private IEnumerator LerpToPosition(Vector3 targetPosition, float duration)
     {
-        scrollBarImage.gameObject.SetActive(false);
+        float time = 0f;
+        Vector3 initialPosition = transform.position;
+
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure that the final position is exactly the target position
+        transform.position = targetPosition;
     }
 }
