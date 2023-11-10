@@ -33,8 +33,8 @@ public class ScrollbarPointer : MonoBehaviour
     
     private void Start()
     {
-        initialPosition = new Vector3(initialOffset, transform.position.y, transform.position.z);
-        targetPosition = new Vector3(targetOffset, transform.position.y, transform.position.z);
+        initialPosition = new Vector3(initialOffset, transform.localPosition.y, transform.localPosition.z);
+        targetPosition = new Vector3(targetOffset, transform.localPosition.y, transform.localPosition.z);
     }
 
 
@@ -46,7 +46,7 @@ public class ScrollbarPointer : MonoBehaviour
         if (isLerping)
         {
             float t = Mathf.PingPong(Time.time / duration, 1.0f); // PingPong between 0 and 1
-            transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, t);
         }
 
         UpdatePlayerInput();
