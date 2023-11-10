@@ -29,6 +29,7 @@ public class ScrollbarPointer : MonoBehaviour
     private Vector3 targetPosition;
     private string currentArea;
 
+
     
     private void Start()
     {
@@ -48,8 +49,10 @@ public class ScrollbarPointer : MonoBehaviour
             transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
         }
 
-        CheckPlayerInput();
+        UpdatePlayerInput();
     }
+
+    
 
     public void CheckScrollBarPointer()
     {
@@ -92,13 +95,14 @@ public class ScrollbarPointer : MonoBehaviour
         yellowAreaDetected = false;
     }
 
+
     public void ToggleLerping()
     {
         // Toggle the isLerping flag to start/stop lerping
         isLerping = !isLerping;
     }
 
-    public void CheckPlayerInput(){
+    public void UpdatePlayerInput(){
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(PlayerInputCoroutine());
@@ -108,22 +112,35 @@ public class ScrollbarPointer : MonoBehaviour
     IEnumerator PlayerInputCoroutine(){
         ToggleLerping();
         Debug.Log("Player input in area : " + currentArea);
+        CheckPlayerInput(currentArea);
         yield return new WaitForSeconds(1f);
         ChangeYellowAreaTransform();
         ChangeGreenAreaTransform();
         ToggleLerping();
     }
 
+    private void CheckPlayerInput(string currArea){
+        if (currArea == "Green Area"){
+            GameManager.instance.DoSomethingInGreenArea();
+        }
+        else if (currArea == "Yellow Area"){
+            GameManager.instance.DoSomethingInYellowArea();
+        }
+        else if (currArea == "Red Area"){
+            GameManager.instance.DoSomethingInRedArea();
+        }
+    }
+
     private void ChangeYellowAreaTransform(){
         // change yellow area x position to random from random possible position
         float randomX = yellowPossiblePosition[UnityEngine.Random.Range(0, yellowPossiblePosition.Length)];
-        yellowArea.localPosition = new Vector3(randomX, yellowArea.position.y, yellowArea.position.z);
+        yellowArea.localPosition = new Vector3(randomX, yellowArea.localPosition.y, yellowArea.localPosition.z);
     }
 
     private void ChangeGreenAreaTransform(){
         // change green area x position to random from random possible position
         float randomX = greenPossiblePosition[UnityEngine.Random.Range(0, greenPossiblePosition.Length)];
-        greenArea.localPosition = new Vector3(randomX, greenArea.position.y, greenArea.position.z);
+        greenArea.localPosition = new Vector3(randomX, greenArea.localPosition.y, greenArea.localPosition.z);
     }
 
     private void GetArea(string area){
