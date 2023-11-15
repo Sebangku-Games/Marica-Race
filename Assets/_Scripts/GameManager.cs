@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void DoSomethingInYellowArea(){
-        //player.MoveToRightScreen();
+        player.MoveToRightScreen(0.5f);
     }
 
     public void DoSomethingInRedArea(){
