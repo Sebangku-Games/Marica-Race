@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int currentRound;
+    [SerializeField] private float initialDistanceToFinish = 10f;
+
     private Player player;
 
     private void Awake()
@@ -40,5 +43,14 @@ public class GameManager : MonoBehaviour
 
     public void DoSomethingInRedArea(){
         //player.MoveToRightScreen();
+    }
+
+    public void CheckGameOver(){
+        if (player.GetTotalDistance() >= initialDistanceToFinish)
+        {
+            // Game Over
+            Debug.Log("Round END");
+            player.ResetDistance();
+        }
     }
 }
