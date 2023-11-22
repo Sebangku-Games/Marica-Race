@@ -20,7 +20,7 @@ public class ScrollbarPointer : MonoBehaviour
     private bool greenAreaDetected = false;
     private bool yellowAreaDetected = false;
 
-    [SerializeField] private float duration = 2f;
+    [SerializeField] private float duration = 1f;
     private bool isLerping = true; // Flag to control lerping
 
     private float initialOffset = -1f;
@@ -28,6 +28,8 @@ public class ScrollbarPointer : MonoBehaviour
     private Vector3 initialPosition;
     private Vector3 targetPosition;
     private string currentArea;
+
+    private bool hasIncreasedSpeed = false;
 
 
     
@@ -113,7 +115,7 @@ public class ScrollbarPointer : MonoBehaviour
         ToggleLerping();
         Debug.Log("Player input in area : " + currentArea);
         CheckPlayerInput(currentArea);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         ChangeYellowAreaTransform();
         ChangeGreenAreaTransform();
         ToggleLerping();
@@ -145,5 +147,19 @@ public class ScrollbarPointer : MonoBehaviour
 
     private void GetArea(string area){
         currentArea = area;
+    }
+
+    public void IncreaseScrollbarPointerSpeed(){
+        if (hasIncreasedSpeed){
+            return;
+        }
+        duration = duration / 2;
+        hasIncreasedSpeed = true;
+    }
+
+    public void ResetScrollbarPointerSpeed(){
+        Debug.Log("Reset Scrollbar Pointer Speed");
+        duration = 1f;
+        hasIncreasedSpeed = false;
     }
 }
