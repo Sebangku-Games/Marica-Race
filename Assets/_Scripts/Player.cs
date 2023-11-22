@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float durationLerp = 1f;
+    [SerializeField] private float totalDistance;
     
 
     public void MoveToRightScreen(float distance)
     {
         Vector3 targetPosition = transform.position + transform.right * distance;
+        totalDistance += distance;
+
+        GameManager.instance.CheckGameOver();
+
         StartCoroutine(LerpToPosition(targetPosition, durationLerp));
     }
 
@@ -28,5 +33,17 @@ public class Player : MonoBehaviour
 
         // Ensure that the final position is exactly the target position
         transform.position = targetPosition;
+    }
+
+
+
+    public float GetTotalDistance()
+    {
+        return totalDistance;
+    }
+
+    public void ResetDistance()
+    {
+        totalDistance = 0f;
     }
 }

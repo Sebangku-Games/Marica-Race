@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationLerp: 1
+  totalDistance: 0
 --- !u!1 &85679886
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +232,8 @@ GameObject:
   m_Component:
   - component: {fileID: 85679888}
   - component: {fileID: 85679887}
+  - component: {fileID: 85679889}
+  - component: {fileID: 85679890}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -250,6 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09afac5ffa1d0fc40a97436101137667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRound: 0
+  initialDistanceToFinish: 10
+  isBoosting: 0
+  isPenalty: 0
 --- !u!4 &85679888
 Transform:
   m_ObjectHideFlags: 0
@@ -265,6 +272,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &85679889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85679886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d173db87bd16e46ac178dbb140e056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountGreenClickInARow: 0
+--- !u!114 &85679890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85679886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a02a8d5882f823408545ec47e60c5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountRedClickInARow: 0
 --- !u!1 &89142806
 GameObject:
   m_ObjectHideFlags: 0

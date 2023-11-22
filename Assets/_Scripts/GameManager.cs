@@ -6,7 +6,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int currentRound;
+    [SerializeField] private float initialDistanceToFinish = 10f;
+
+    public bool isBoosting = false;
+    public bool isPenalty = false;
+
     private Player player;
+    private Boost boost;
+    private Penalty penalty;
+    private ScrollbarPointer scrollbarPointer;
 
     private void Awake()
     {
@@ -16,6 +25,9 @@ public class GameManager : MonoBehaviour
             instance = this;
 
         player = FindObjectOfType<Player>();
+        scrollbarPointer = FindObjectOfType<ScrollbarPointer>();
+        boost = GetComponent<Boost>();
+        penalty = GetComponent<Penalty>();
     }
 
     // Start is called before the first frame update
@@ -31,14 +43,52 @@ public class GameManager : MonoBehaviour
     }
 
     public void DoSomethingInGreenArea(){
-        player.MoveToRightScreen(1f);
+        penalty.ResetAmountRedClickInARow();
+        scrollbarPointer.ResetScrollbarPointerSpeed();
+
+        boost.UpdateBoost();
+
+        if (isBoosting)
+        {
+            Debug.Log("Boost");
+            player.MoveToRightScreen(2f);
+        }
+        else
+        {
+            player.MoveToRightScreen(1f);
+        }
     }
 
     public void DoSomethingInYellowArea(){
+        boost.ResetAmountGreenClickInARow();
+        penalty.ResetAmountRedClickInARow();
+        scrollbarPointer.ResetScrollbarPointerSpeed();
+
         player.MoveToRightScreen(0.5f);
     }
 
     public void DoSomethingInRedArea(){
-        //player.MoveToRightScreen();
+        boost.ResetAmountGreenClickInARow();
+        
+        penalty.UpdatePenalty();
+
+        if (isPenalty)
+        {
+            Debug.Log("Penalty");
+            scrollbarPointer.IncreaseScrollbarPointerSpeed();
+        }
+        else
+        {
+            scrollbarPointer.ResetScrollbarPointerSpeed();
+        }
+    }
+
+    public void CheckGameOver(){
+        if (player.GetTotalDistance() >= initialDistanceToFinish)
+        {
+            // Game Over
+            Debug.Log("Round END");
+            player.ResetDistance();
+        }
     }
 }
