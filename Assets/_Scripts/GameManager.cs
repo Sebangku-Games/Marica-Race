@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void DoSomethingInGreenArea(){
         penalty.ResetAmountRedClickInARow();
+        scrollbarPointer.ResetScrollbarPointerSpeed();
 
         boost.UpdateBoost();
 
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
     public void DoSomethingInYellowArea(){
         boost.ResetAmountGreenClickInARow();
         penalty.ResetAmountRedClickInARow();
+        scrollbarPointer.ResetScrollbarPointerSpeed();
 
         player.MoveToRightScreen(0.5f);
     }

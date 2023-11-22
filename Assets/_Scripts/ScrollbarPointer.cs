@@ -153,6 +153,7 @@ public class ScrollbarPointer : MonoBehaviour
         if (hasIncreasedSpeed){
             return;
         }
+        Debug.Log("INcrease scrollbar pointer speed");
         duration = duration / 2;
         hasIncreasedSpeed = true;
     }
