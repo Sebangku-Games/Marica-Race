@@ -14,9 +14,8 @@ public class Player : MonoBehaviour
         Vector3 targetPosition = transform.position + transform.right * distance;
         totalDistance += distance;
 
-        GameManager.instance.CheckGameOver();
-
         StartCoroutine(LerpToPosition(targetPosition, durationLerp));
+
     }
 
     private IEnumerator LerpToPosition(Vector3 targetPosition, float duration)
@@ -33,6 +32,9 @@ public class Player : MonoBehaviour
 
         // Ensure that the final position is exactly the target position
         transform.position = targetPosition;
+
+        
+        GameManager.instance.CheckRoundOver();
     }
 
 

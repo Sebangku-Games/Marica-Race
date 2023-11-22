@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int currentRound;
-    [SerializeField] private float initialDistanceToFinish = 10f;
 
     public bool isBoosting = false;
     public bool isPenalty = false;
@@ -16,6 +15,8 @@ public class GameManager : MonoBehaviour
     private Boost boost;
     private Penalty penalty;
     private ScrollbarPointer scrollbarPointer;
+    private RoundManager roundManager;
+    private UIManager uIManager;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
         scrollbarPointer = FindObjectOfType<ScrollbarPointer>();
         boost = GetComponent<Boost>();
         penalty = GetComponent<Penalty>();
+        roundManager = GetComponent<RoundManager>();
+        uIManager = GetComponent<UIManager>();
     }
 
     // Start is called before the first frame update
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         if (isBoosting)
         {
-            Debug.Log("Boost");
+            // Debug.Log("Boost");
             player.MoveToRightScreen(2f);
         }
         else
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
 
         if (isPenalty)
         {
-            Debug.Log("Penalty");
+            // Debug.Log("Penalty");
             scrollbarPointer.IncreaseScrollbarPointerSpeed();
         }
         else
@@ -83,12 +86,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckGameOver(){
-        if (player.GetTotalDistance() >= initialDistanceToFinish)
+    public void CheckRoundOver(){
+        if (player.GetTotalDistance() >= roundManager.distanceToFinish)
         {
             // Game Over
             Debug.Log("Round END");
+            uIManager.ShowRoundOverPanel();
             player.ResetDistance();
+
+            Time.timeScale = 0f;
         }
+    }
+
+    public void StartNextRound(){
+        roundManager.AddRound();
+
+        Time.timeScale = 1f;
+        
+        uIManager.HideRoundOverPanel();
     }
 }
