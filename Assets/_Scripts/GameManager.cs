@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
 
     public int currentRound;
 
+    public bool isGameRunning = false;
     public bool isBoosting = false;
     public bool isPenalty = false;
 
-    private Player player;
+    [SerializeField] private Player player;
     private Boost boost;
     private Penalty penalty;
     private ScrollbarPointer scrollbarPointer;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
         else
             instance = this;
 
-        player = FindObjectOfType<Player>();
+        // player = FindObjectOfType<Player>();
         scrollbarPointer = FindObjectOfType<ScrollbarPointer>();
         boost = GetComponent<Boost>();
         penalty = GetComponent<Penalty>();
@@ -36,13 +37,22 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartGame(){
+        if (isGameRunning)
+        {
+            return;
+        }
+
+        isGameRunning = true;
     }
 
     public void DoSomethingInGreenArea(){
@@ -89,13 +99,20 @@ public class GameManager : MonoBehaviour
     public void CheckRoundOver(){
         if (player.GetTotalDistance() >= roundManager.distanceToFinish)
         {
-            // Game Over
-            Debug.Log("Round END");
-            uIManager.ShowRoundOverPanel();
-            player.ResetDistance();
-
-            Time.timeScale = 0f;
+            // Round Over
+            RoundOver();
+            
         }
+    }
+
+    private void RoundOver(){
+        Debug.Log("Round END");
+        uIManager.ShowRoundOverPanel();
+        player.ResetDistance();
+
+        Time.timeScale = 0f;
+
+        isGameRunning = false;
     }
 
     public void StartNextRound(){
@@ -104,5 +121,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         
         uIManager.HideRoundOverPanel();
+
+        isGameRunning = true;
     }
 }
