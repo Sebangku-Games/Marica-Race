@@ -16,7 +16,7 @@ public class ScrollbarPointer : MonoBehaviour
 
     [Header("Pointer")]
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float radius = 0.01f;
+    [SerializeField] private float radius = 0.1f;
     private bool greenAreaDetected = false;
     private bool yellowAreaDetected = false;
 
