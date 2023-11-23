@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ScrollbarPointer : MonoBehaviour
 {
+    public UIManager uiManager;
+
     [Header("Yellow Area")]
     [SerializeField] private Transform yellowArea;
     private float[] yellowPossiblePosition = { -0.35f, -0.25f, -0.15f, -0.05f, 0.05f, 0, 0.15f, 0.25f, 0.35f };
@@ -58,6 +60,7 @@ public class ScrollbarPointer : MonoBehaviour
 
     public void CheckScrollBarPointer()
     {
+
         // Calculate the position to cast the raycast from
         Vector2 raycastPosition = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(raycastPosition, radius, layerMask);
@@ -89,6 +92,7 @@ public class ScrollbarPointer : MonoBehaviour
             {
                 //Debug.Log("Red Area");
                 GetArea("Red Area");
+                //uiManager.ShowAreaText("Red Area");
             }
         }
 
@@ -114,11 +118,13 @@ public class ScrollbarPointer : MonoBehaviour
     IEnumerator PlayerInputCoroutine(){
         ToggleLerping();
         Debug.Log("Player input in area : " + currentArea);
+        uiManager.ShowAreaText(currentArea);
         CheckPlayerInput(currentArea);
         yield return new WaitForSeconds(0.75f);
         ChangeYellowAreaTransform();
         ChangeGreenAreaTransform();
         ToggleLerping();
+        
     }
 
     private void CheckPlayerInput(string currArea){
