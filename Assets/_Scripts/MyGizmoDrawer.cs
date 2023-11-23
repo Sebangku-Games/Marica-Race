@@ -10,6 +10,6 @@ public class MyGizmoDrawer : MonoBehaviour
     {
         // Your Gizmo drawing code here
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(script.transform.position, 0.01f);
+        Gizmos.DrawWireSphere(script.transform.position, 0.1f);
     }
 }
