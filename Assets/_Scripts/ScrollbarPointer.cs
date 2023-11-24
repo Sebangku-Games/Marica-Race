@@ -22,7 +22,7 @@ public class ScrollbarPointer : MonoBehaviour
     private bool greenAreaDetected = false;
     private bool yellowAreaDetected = false;
 
-    [SerializeField] private float duration = 1f;
+    public float duration = 1f;
     private bool isLerping = true; // Flag to control lerping
 
     private float initialOffset = -1f;

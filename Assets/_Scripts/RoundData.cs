@@ -5,13 +5,13 @@ using UnityEngine;
 public class RoundData : ScriptableObject
 {
     [Header("Enemy AI")]
-    public float intervalToMove;
+    public float enemyMoveInterval;
     public float chanceToMove0;
     public float chanceToMoveHalf;
     public float chanceToMove1;
 
     [Header("Scrollbar")]
-    public float scrollbarSpeed;
+    public float scrollbarPointerSpeed;
 
     [Header("Boost")]
     public int amountToGetBoost;

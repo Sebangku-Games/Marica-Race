@@ -6,12 +6,12 @@ public class Boost : MonoBehaviour
 {
     public int amountGreenClickInARow;
 
-    private int amountToGetBoost = 5;
+    public int amountToGetBoost = 5;
 
     private void Start()
     {
         amountGreenClickInARow = 0;
-        
+
     }
 
     public void UpdateBoost(){
@@ -29,6 +29,4 @@ public class Boost : MonoBehaviour
         amountGreenClickInARow = 0;
         GameManager.instance.isBoosting = false;
     }
-
-
 }

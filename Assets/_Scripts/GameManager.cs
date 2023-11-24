@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int currentRound;
-
     public bool isGameRunning = false;
     public bool isBoosting = false;
     public bool isPenalty = false;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyAIs;
 
     [SerializeField] private Player player;
     private Boost boost;
@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     private ScrollbarPointer scrollbarPointer;
     private RoundManager roundManager;
     private UIManager uIManager;
+
+    public RoundData[] roundDatas;
+    public RoundData currentRoundData;
 
     private void Awake()
     {
@@ -32,6 +35,9 @@ public class GameManager : MonoBehaviour
         penalty = GetComponent<Penalty>();
         roundManager = GetComponent<RoundManager>();
         uIManager = GetComponent<UIManager>();
+
+        
+        UpdateCurrentRoundData();
     }
 
     // Start is called before the first frame update
@@ -51,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        SpawnEnemies();
 
         isGameRunning = true;
     }
@@ -109,6 +116,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Round END");
         uIManager.ShowRoundOverPanel();
         player.ResetDistance();
+        DestroyEnemies();
 
         Time.timeScale = 0f;
 
@@ -117,11 +125,46 @@ public class GameManager : MonoBehaviour
 
     public void StartNextRound(){
         roundManager.AddRound();
+        UpdateCurrentRoundData();
+        StartGame();
 
         Time.timeScale = 1f;
         
         uIManager.HideRoundOverPanel();
+    }
 
-        isGameRunning = true;
+    private void UpdateCurrentRoundData(){
+        currentRoundData = roundDatas[roundManager.currentRound - 1];
+
+        UpdateAllRoundData();
+    }
+
+    private void SpawnEnemies(){
+        // spawn enemies based on Player position + give y.offset 2 & -2
+        Vector2 enemy1SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y + 2f);
+        Vector2 enemy2SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y - 2f);
+
+        GameObject enemy1 = Instantiate(enemyPrefab, enemy1SpawnPosition, Quaternion.identity);
+        enemyAIs.Add(enemy1);
+        GameObject enemy2 = Instantiate(enemyPrefab, enemy2SpawnPosition, Quaternion.identity);
+        enemyAIs.Add(enemy2);
+
+        //
+    }
+
+    private void DestroyEnemies(){
+        foreach (GameObject enemyAI in enemyAIs)
+        {
+            Destroy(enemyAI);
+        }
+    }
+
+    private void UpdateAllRoundData(){
+        // boost & penalty
+        boost.amountToGetBoost = currentRoundData.amountToGetBoost;
+        penalty.amountToGetPenalty = currentRoundData.amountToGetPenalty;
+
+        // scrollbar
+        scrollbarPointer.duration = currentRoundData.scrollbarPointerSpeed;
     }
 }

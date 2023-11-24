@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
-    [SerializeField] private int currentRound = 1;
+    public int currentRound = 1;
     public float initialDistanceToFinish = 8f;
     public float distanceToFinish;
 

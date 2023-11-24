@@ -14,6 +14,10 @@ public class EnemyAI : Player
     void Start()
     {
         StartCoroutine(EnemyMove());
+
+        interval = GameManager.instance.currentRoundData.enemyMoveInterval;
+        chanceToMove0 = GameManager.instance.currentRoundData.chanceToMove0;
+        chanceToMoveHalf = GameManager.instance.currentRoundData.chanceToMoveHalf;
     }
 
     IEnumerator EnemyMove()

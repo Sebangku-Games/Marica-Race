@@ -6,12 +6,11 @@ public class Penalty : MonoBehaviour
 {
     public int amountRedClickInARow;
 
-    private int amountToGetPenalty = 4;
+    public int amountToGetPenalty = 4;
 
     private void Start()
     {
         amountRedClickInARow = 0;
-        
     }
 
     public void UpdatePenalty(){
@@ -29,5 +28,4 @@ public class Penalty : MonoBehaviour
         amountRedClickInARow = 0;
         GameManager.instance.isPenalty = false;
     }
-
 }
