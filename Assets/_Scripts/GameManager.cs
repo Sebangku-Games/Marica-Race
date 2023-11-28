@@ -161,7 +161,12 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateCurrentRoundData(){
-        currentRoundData = roundDatas[roundManager.currentRound - 1];
+        if (roundManager.currentRound < roundDatas.Length)
+        {
+            currentRoundData = roundDatas[roundManager.currentRound - 1];
+        } else {
+            currentRoundData = roundDatas[roundDatas.Length - 1];
+        }
 
         UpdateAllRoundData();
     }

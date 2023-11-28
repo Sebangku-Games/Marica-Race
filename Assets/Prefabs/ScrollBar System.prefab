@@ -463,7 +463,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4310209292503805948}
   - component: {fileID: 4310209292503805950}
-  - component: {fileID: 6847089425235194991}
   m_Layer: 0
   m_Name: Pointer
   m_TagString: Untagged
@@ -499,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5c6f478cbdd2a469f0490839fe9e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
   yellowArea: {fileID: 4310209291552372107}
   greenArea: {fileID: 4310209291963440382}
   layerMask:
@@ -506,18 +506,6 @@ MonoBehaviour:
     m_Bits: 896
   radius: 0.01
   duration: 1
---- !u!114 &6847089425235194991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4310209292503805939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b154d74c204afe34a9a5f09dbc9a1af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6503542264652241415
 GameObject:
   m_ObjectHideFlags: 0
