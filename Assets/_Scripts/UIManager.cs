@@ -9,10 +9,22 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI areaText;
     public GameObject roundOverPanel;
+    public GameObject gameOverPanel;
 
     private void Start()
     {
         HideRoundOverPanel();
+        HideGameOverPanel();
+    }
+
+    internal void ShowGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    private void HideGameOverPanel()
+    {
+        gameOverPanel.SetActive(false);
     }
 
     internal void ShowRoundOverPanel()
@@ -66,4 +78,5 @@ public class UIManager : MonoBehaviour
     {
         areaText.text = "";
     }
+
 }

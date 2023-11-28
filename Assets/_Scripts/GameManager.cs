@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -108,8 +109,27 @@ public class GameManager : MonoBehaviour
         {
             // Round Over
             RoundOver();
-            
         }
+
+        foreach (GameObject enemyAI in enemyAIs)
+        {
+            // get component player
+            Player enemy = enemyAI.GetComponent<Player>();
+            if (enemy.GetTotalDistance() >= roundManager.distanceToFinish)
+            {
+                // Game Over
+                GameOver();
+            }
+        }
+    }
+
+    private void GameOver(){
+        Debug.Log("Game END");
+        uIManager.ShowGameOverPanel();
+
+        Time.timeScale = 0f;
+
+        isGameRunning = false;
     }
 
     private void RoundOver(){
@@ -131,6 +151,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         
         uIManager.HideRoundOverPanel();
+    }
+
+    public void RestartGame(){
+        // Reload Scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        Time.timeScale = 1f;
     }
 
     private void UpdateCurrentRoundData(){
