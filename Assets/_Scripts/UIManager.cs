@@ -10,11 +10,14 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI areaText;
     public GameObject roundOverPanel;
     public GameObject gameOverPanel;
+    public Image[] countdownImages;
 
     private void Start()
     {
         HideRoundOverPanel();
         HideGameOverPanel();
+
+        StartCountdownCoroutine();
     }
 
     internal void ShowGameOverPanel()
@@ -77,6 +80,23 @@ public class UIManager : MonoBehaviour
     private void hideText()
     {
         areaText.text = "";
+    }
+
+    public void StartCountdownCoroutine()
+    {
+        StartCoroutine(StartCountdown());
+    }
+
+    IEnumerator StartCountdown()
+    {
+        for (int i = 0; i < countdownImages.Length; i++)
+        {
+            countdownImages[i].gameObject.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            countdownImages[i].gameObject.SetActive(false);
+        }
+        yield return new WaitForSeconds(0.3f);
+        GameManager.instance.StartGame();
     }
 
 }
