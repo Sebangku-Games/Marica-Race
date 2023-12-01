@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     public bool isBoosting = false;
     public bool isPenalty = false;
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private List<GameObject> enemyAIs;
+    [SerializeField] private List<GameObject> enemyAI;
 
-    [SerializeField] private Player player;
+    public Player player;
     private Boost boost;
     private Penalty penalty;
     private ScrollbarPointer scrollbarPointer;
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
             RoundOver();
         }
 
-        foreach (GameObject enemyAI in enemyAIs)
+        foreach (GameObject enemyAI in enemyAI)
         {
             // get component player
             Player enemy = enemyAI.GetComponent<Player>();
@@ -177,15 +177,15 @@ public class GameManager : MonoBehaviour
         Vector2 enemy2SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y - 2f);
 
         GameObject enemy1 = Instantiate(enemyPrefab, enemy1SpawnPosition, Quaternion.identity);
-        enemyAIs.Add(enemy1);
+        enemyAI.Add(enemy1);
         GameObject enemy2 = Instantiate(enemyPrefab, enemy2SpawnPosition, Quaternion.identity);
-        enemyAIs.Add(enemy2);
+        enemyAI.Add(enemy2);
 
         //
     }
 
     private void DestroyEnemies(){
-        foreach (GameObject enemyAI in enemyAIs)
+        foreach (GameObject enemyAI in enemyAI)
         {
             Destroy(enemyAI);
         }
