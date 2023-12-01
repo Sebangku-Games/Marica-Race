@@ -44,6 +44,10 @@ public class ScrollbarPointer : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.instance.isGameRunning){
+            return;
+        }
+        
         CheckScrollBarPointer();
 
         // If isLerping is true, lerp the position of the GameObject
