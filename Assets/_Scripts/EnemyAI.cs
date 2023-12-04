@@ -28,6 +28,13 @@ public class EnemyAI : Player
             float randomValue = UnityEngine.Random.Range(0f, 1f);
             float selectedDistance;
 
+            if (IsEnemyBehindPlayer())
+            {
+                chanceToMove0 = 0.1f;
+            }else{
+                chanceToMove0 = GameManager.instance.currentRoundData.chanceToMove0;
+            }
+
             if (randomValue < chanceToMove0) // 40% chance
             {
                 selectedDistance = 0f;
@@ -45,6 +52,13 @@ public class EnemyAI : Player
             
             Debug.Log("Enemy move : " + selectedDistance);
             yield return new WaitForSeconds(interval);
+
+            Debug.Log("Enemy is : " + IsEnemyBehindPlayer());
         }
+    }
+
+    private bool IsEnemyBehindPlayer()
+    {
+        return transform.position.x < GameManager.instance.player.transform.position.x;
     }
 }

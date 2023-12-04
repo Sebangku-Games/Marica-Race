@@ -22,7 +22,8 @@ public class ScrollbarPointer : MonoBehaviour
     private bool greenAreaDetected = false;
     private bool yellowAreaDetected = false;
 
-    public float duration = 1f;
+    public float duration;
+    private float tempDuration;
     private bool isLerping = true; // Flag to control lerping
 
     private float initialOffset = -1f;
@@ -39,6 +40,9 @@ public class ScrollbarPointer : MonoBehaviour
     {
         initialPosition = new Vector3(initialOffset, transform.localPosition.y, transform.localPosition.z);
         targetPosition = new Vector3(targetOffset, transform.localPosition.y, transform.localPosition.z);
+
+        
+        tempDuration = duration;
     }
 
 
@@ -113,7 +117,7 @@ public class ScrollbarPointer : MonoBehaviour
     }
 
     public void UpdatePlayerInput(){
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             StartCoroutine(PlayerInputCoroutine());
         }
@@ -163,6 +167,7 @@ public class ScrollbarPointer : MonoBehaviour
         if (hasIncreasedSpeed){
             return;
         }
+
         // Debug.Log("INcrease scrollbar pointer speed");
         duration = duration / 2;
         hasIncreasedSpeed = true;
@@ -170,7 +175,7 @@ public class ScrollbarPointer : MonoBehaviour
 
     public void ResetScrollbarPointerSpeed(){
         // Debug.Log("Reset Scrollbar Pointer Speed");
-        duration = 1f;
+        duration = tempDuration;
         hasIncreasedSpeed = false;
     }
 }
