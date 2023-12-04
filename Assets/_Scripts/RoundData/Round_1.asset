@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Round_1
   m_EditorClassIdentifier: 
   enemyMoveInterval: 1.2
-  chanceToMove0: 0.5
+  chanceToMove0: 0.49
   chanceToMoveHalf: 0.45
-  chanceToMove1: 0.05
-  scrollbarPointerSpeed: 1.1
+  chanceToMove1: 0.06
+  scrollbarPointerSpeed: 1
   amountToGetBoost: 2
   amountToGetPenalty: 5
