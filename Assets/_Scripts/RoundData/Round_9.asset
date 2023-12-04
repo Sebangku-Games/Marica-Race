@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5b4c9460471314ab6f85f6c49824fb, type: 3}
   m_Name: Round_9
   m_EditorClassIdentifier: 
-  enemyMoveInterval: 1.1
-  chanceToMove0: 0.43
-  chanceToMoveHalf: 0.42
-  chanceToMove1: 0.15
-  scrollbarPointerSpeed: 0.9
+  enemyMoveInterval: 1.04
+  chanceToMove0: 0.37
+  chanceToMoveHalf: 0.45
+  chanceToMove1: 0.18
+  scrollbarPointerSpeed: 0.84
   amountToGetBoost: 3
-  amountToGetPenalty: 4
+  amountToGetPenalty: 3

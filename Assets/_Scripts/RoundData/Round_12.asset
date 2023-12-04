@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d5b4c9460471314ab6f85f6c49824fb, type: 3}
-  m_Name: Round_8
+  m_Name: Round_12
   m_EditorClassIdentifier: 
-  enemyMoveInterval: 1.06
-  chanceToMove0: 0.39
-  chanceToMoveHalf: 0.44
-  chanceToMove1: 0.17
-  scrollbarPointerSpeed: 0.86
-  amountToGetBoost: 3
-  amountToGetPenalty: 3
+  enemyMoveInterval: 0.98
+  chanceToMove0: 0.31
+  chanceToMoveHalf: 0.48
+  chanceToMove1: 0.21
+  scrollbarPointerSpeed: 0.78
+  amountToGetBoost: 4
+  amountToGetPenalty: 2

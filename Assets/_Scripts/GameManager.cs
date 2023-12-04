@@ -189,6 +189,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemyAI);
         }
+
+        enemyAI.Clear();
     }
 
     private void UpdateAllRoundData(){

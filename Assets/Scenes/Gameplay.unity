@@ -176,7 +176,7 @@ MonoBehaviour:
   isBoosting: 0
   isPenalty: 0
   enemyPrefab: {fileID: 2132318344269372732, guid: 428dbedc19489394eb2e1886219de425, type: 3}
-  enemyAIs: []
+  enemyAI: []
   player: {fileID: 67273503}
   roundDatas:
   - {fileID: 11400000, guid: 65b54b540e2c39946abceca2aff8cd19, type: 2}
@@ -185,6 +185,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22401ee18c79c2a46934f4524d99fb41, type: 2}
   - {fileID: 11400000, guid: 5b4439dda06cf264dad13655d4feac0b, type: 2}
   - {fileID: 11400000, guid: 860b5a8eb61027943a4a8f122fdfe03e, type: 2}
+  - {fileID: 11400000, guid: ae3e72263deb3cf4897828f855f5d0b0, type: 2}
+  - {fileID: 11400000, guid: 46f30df9bca89e94fb44f06c5d2ef259, type: 2}
+  - {fileID: 11400000, guid: da38d050d3e0f874d9c707dcfa41009c, type: 2}
+  - {fileID: 11400000, guid: e32acb002e8fd5342adde9c2ae80eef3, type: 2}
+  - {fileID: 11400000, guid: 2887b5a58bada4e4b976a3be70998039, type: 2}
+  - {fileID: 11400000, guid: cc26418e47305554aa5ee1b65a162f0d, type: 2}
+  - {fileID: 11400000, guid: 3ec889a88f761a84d961e6ed161c702f, type: 2}
+  - {fileID: 11400000, guid: d85cba5154fdd914da8ff8e5f98bc711, type: 2}
+  - {fileID: 11400000, guid: 18e5cc31fbf55764f863d7713a9a8238, type: 2}
+  - {fileID: 11400000, guid: 79ab19bff2c12704db2d8f598b60b416, type: 2}
+  - {fileID: 11400000, guid: 2906eb513faaa3b4dbba46664df35cd1, type: 2}
+  - {fileID: 11400000, guid: 134f222874f677e40aa5f0fc377c2954, type: 2}
+  - {fileID: 11400000, guid: 8fc7179dd6aaad14083bbde3c627a96c, type: 2}
+  - {fileID: 11400000, guid: f39e06e7bcfc9434d924f6f39f83d382, type: 2}
   currentRoundData: {fileID: 0}
 --- !u!4 &85679888
 Transform:
