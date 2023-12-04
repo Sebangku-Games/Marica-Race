@@ -11,13 +11,14 @@ public class UIManager : MonoBehaviour
     public GameObject roundOverPanel;
     public GameObject gameOverPanel;
     public Image[] countdownImages;
+    
 
     private void Start()
     {
         HideRoundOverPanel();
         HideGameOverPanel();
 
-        StartCountdownCoroutine();
+        //StartCountdownCoroutine();
     }
 
     internal void ShowGameOverPanel()
@@ -86,6 +87,8 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(StartCountdown());
     }
+
+    
 
     IEnumerator StartCountdown()
     {
