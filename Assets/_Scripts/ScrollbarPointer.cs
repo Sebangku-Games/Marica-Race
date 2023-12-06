@@ -128,7 +128,7 @@ public class ScrollbarPointer : MonoBehaviour
         Debug.Log("Player input in area : " + currentArea);
         uiManager.ShowAreaText(currentArea);
         CheckPlayerInput(currentArea);
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1);
         ChangeYellowAreaTransform();
         ChangeGreenAreaTransform();
         ToggleLerping();

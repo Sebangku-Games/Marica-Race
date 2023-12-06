@@ -138,15 +138,18 @@ public class GameManager : MonoBehaviour
         player.ResetDistance();
         DestroyEnemies();
 
+        StopAllCoroutines();
+
         Time.timeScale = 0f;
 
         isGameRunning = false;
+
     }
 
     public void StartNextRound(){
         roundManager.AddRound();
         UpdateCurrentRoundData();
-        StartGame();
+        uIManager.StartCountdownCoroutine();
 
         Time.timeScale = 1f;
         
@@ -194,6 +197,12 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateAllRoundData(){
+        // reset boost/penalty flag
+        isBoosting = false;
+        isPenalty = false;
+        boost.amountGreenClickInARow = 0;
+        penalty.amountRedClickInARow = 0;
+
         // boost & penalty
         boost.amountToGetBoost = currentRoundData.amountToGetBoost;
         penalty.amountToGetPenalty = currentRoundData.amountToGetPenalty;

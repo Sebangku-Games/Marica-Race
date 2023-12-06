@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
         totalDistance += distance;
 
         StartCoroutine(LerpToPosition(targetPosition, durationLerp));
-
     }
 
     private IEnumerator LerpToPosition(Vector3 targetPosition, float duration)
@@ -27,13 +26,13 @@ public class Player : MonoBehaviour
         {
             transform.position = Vector3.Lerp(initialPosition, targetPosition, time / duration);
             time += Time.deltaTime;
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         // Ensure that the final position is exactly the target position
         transform.position = targetPosition;
 
-        
+        yield return new WaitForSeconds(duration);
         GameManager.instance.CheckRoundOver();
     }
 
