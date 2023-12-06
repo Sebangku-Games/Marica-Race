@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     private Boost boost;
     private Penalty penalty;
     private ScrollbarPointer scrollbarPointer;
-    private RoundManager roundManager;
+    public RoundManager roundManager;
     private UIManager uIManager;
+    private PathChecker pathChecker;
 
     public RoundData[] roundDatas;
     public RoundData currentRoundData;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         penalty = GetComponent<Penalty>();
         roundManager = GetComponent<RoundManager>();
         uIManager = GetComponent<UIManager>();
+        pathChecker = FindObjectOfType<PathChecker>();
 
         
         UpdateCurrentRoundData();
@@ -73,10 +75,12 @@ public class GameManager : MonoBehaviour
         {
             // Debug.Log("Boost");
             player.MoveToRightScreen(2f);
+            pathChecker.UpdatePathCheckerPlayer(2f);
         }
         else
         {
             player.MoveToRightScreen(1f);
+            pathChecker.UpdatePathCheckerPlayer(1f);
         }
     }
 
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour
         scrollbarPointer.ResetScrollbarPointerSpeed();
 
         player.MoveToRightScreen(0.5f);
+        pathChecker.UpdatePathCheckerPlayer(0.5f);
     }
 
     public void DoSomethingInRedArea(){

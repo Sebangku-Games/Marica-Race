@@ -10,6 +10,8 @@ public class EnemyAI : Player
     [SerializeField] private float chanceToMove0 = 0.4f;
     [SerializeField] private float chanceToMoveHalf = 0.45f;
 
+    private float distanceToMove;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,8 @@ public class EnemyAI : Player
                 selectedDistance = 1f;
             }
 
+            distanceToMove = selectedDistance;
+
             MoveToRightScreen(selectedDistance);
             
             Debug.Log("Enemy move : " + selectedDistance);
@@ -60,5 +64,9 @@ public class EnemyAI : Player
     private bool IsEnemyBehindPlayer()
     {
         return transform.position.x < GameManager.instance.player.transform.position.x;
+    }
+
+    public float GetEnemyMoveDistance(){
+        return distanceToMove;
     }
 }
