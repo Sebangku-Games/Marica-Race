@@ -7,9 +7,17 @@ public class PathChecker : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform enemy1;
     [SerializeField] private Transform enemy2;
+
     private void Start()
     {
-        
+        ResetPosition();
+    }
+
+    public void ResetPosition(){
+        // only set x position to 0
+        player.transform.localPosition = new Vector3(-1, player.transform.localPosition.y, player.transform.localPosition.z);
+        enemy1.transform.localPosition = new Vector3(-1.02f, enemy1.transform.localPosition.y, enemy1.transform.localPosition.z);
+        enemy2.transform.localPosition = new Vector3(-1.01f, enemy2.transform.localPosition.y, enemy2.transform.localPosition.z);
     }
 
     

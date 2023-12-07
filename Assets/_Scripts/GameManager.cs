@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Round END");
         uIManager.ShowRoundOverPanel();
         player.ResetDistance();
+        pathChecker.ResetPosition();
         DestroyEnemies();
 
         StopAllCoroutines();
