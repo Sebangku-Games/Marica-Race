@@ -178,6 +178,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2132318344269372732, guid: 428dbedc19489394eb2e1886219de425, type: 3}
   enemyAI: []
   player: {fileID: 67273503}
+  roundManager: {fileID: 0}
   roundDatas:
   - {fileID: 11400000, guid: 65b54b540e2c39946abceca2aff8cd19, type: 2}
   - {fileID: 11400000, guid: 2723e8ef788377944b3cb23485b94ad2, type: 2}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -185,12 +186,38 @@ public class GameManager : MonoBehaviour
         Vector2 enemy2SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y - 2f);
 
         GameObject enemy1 = Instantiate(enemyPrefab, enemy1SpawnPosition, Quaternion.identity);
+        enemy1.GetComponent<EnemyAI>().enemyIndex = 1;  // Set the enemyIndex for enemy1
         enemyAI.Add(enemy1);
+
         GameObject enemy2 = Instantiate(enemyPrefab, enemy2SpawnPosition, Quaternion.identity);
+        enemy2.GetComponent<EnemyAI>().enemyIndex = 2;  // Set the enemyIndex for enemy2
         enemyAI.Add(enemy2);
+
+        StartCoroutine(MoveEnemy(enemy1));
+        StartCoroutine(MoveEnemy(enemy2));
 
         //
     }
+
+    IEnumerator MoveEnemy(GameObject enemyAI){
+        EnemyAI enemyAIs = enemyAI.GetComponent<EnemyAI>();
+        // call Player.MoveToRight every interval seconds
+        while (true)
+        {
+            float selectedDistance = enemyAIs.SelectDistance();
+
+            enemyAIs.MoveToRightScreen(selectedDistance);
+
+            // Call the UpdatePathChecker method with the enemy index and distance
+            pathChecker.UpdatePathChecker(enemyAIs.enemyIndex, selectedDistance);
+            
+            // Debug.Log("Enemy move : " + selectedDistance);
+            yield return new WaitForSeconds(currentRoundData.enemyMoveInterval);
+
+            // Debug.Log("Enemy is : " + IsEnemyBehindPlayer(enemyAI));
+        }
+    }
+
 
     private void DestroyEnemies(){
         foreach (GameObject enemyAI in enemyAI)

@@ -38,6 +38,23 @@ public class PathChecker : MonoBehaviour
         player.transform.localPosition = targetPosition;
     }
 
+    public void UpdatePathChecker(int enemyIndex, float distance)
+    {
+        float distanceToMove = distance;
+
+        if (enemyIndex == 1)
+        {
+            UpdatePathCheckerEnemy1(distanceToMove);
+        }
+        else if (enemyIndex == 2)
+        {
+            UpdatePathCheckerEnemy2(distanceToMove);
+        }
+        // Add more conditions if you have additional enemies
+
+        // You can also handle errors or log a message if the enemy index is not recognized
+    }
+
     public void UpdatePathCheckerEnemy1(float distance){
         float distanceToMove = distance/GameManager.instance.roundManager.distanceToFinish * 2f;
         StartCoroutine(LerpToAddPositionEnemy1(distanceToMove, 0.5f));
