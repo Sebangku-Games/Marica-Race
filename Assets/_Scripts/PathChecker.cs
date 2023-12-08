@@ -14,10 +14,11 @@ public class PathChecker : MonoBehaviour
     }
 
     public void ResetPosition(){
+        Debug.Log("RESET POSITION CHECKER");
         // only set x position to 0
-        player.transform.localPosition = new Vector3(-1, player.transform.localPosition.y, player.transform.localPosition.z);
-        enemy1.transform.localPosition = new Vector3(-1.02f, enemy1.transform.localPosition.y, enemy1.transform.localPosition.z);
-        enemy2.transform.localPosition = new Vector3(-1.01f, enemy2.transform.localPosition.y, enemy2.transform.localPosition.z);
+        player.transform.localPosition = new Vector3(-1.01f, player.transform.localPosition.y, player.transform.localPosition.z);
+        enemy1.transform.localPosition = new Vector3(-1.03f, enemy1.transform.localPosition.y, enemy1.transform.localPosition.z);
+        enemy2.transform.localPosition = new Vector3(-1.02f, enemy2.transform.localPosition.y, enemy2.transform.localPosition.z);
     }
 
     
@@ -40,10 +41,11 @@ public class PathChecker : MonoBehaviour
         {
             player.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, time / duration);
             time += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
         }
 
         player.transform.localPosition = targetPosition;
+
+        yield return new WaitForSeconds(duration);
     }
 
     public void UpdatePathChecker(int enemyIndex, float distance)

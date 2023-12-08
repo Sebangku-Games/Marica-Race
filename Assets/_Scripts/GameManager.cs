@@ -142,7 +142,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Round END");
         uIManager.ShowRoundOverPanel();
         player.ResetDistance();
-        pathChecker.ResetPosition();
         DestroyEnemies();
 
         StopAllCoroutines();
@@ -156,6 +155,7 @@ public class GameManager : MonoBehaviour
     public void StartNextRound(){
         roundManager.AddRound();
         UpdateCurrentRoundData();
+        pathChecker.ResetPosition();
         uIManager.StartCountdownCoroutine();
 
         Time.timeScale = 1f;
