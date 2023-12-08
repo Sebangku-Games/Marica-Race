@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject roundOverPanel;
     public GameObject gameOverPanel;
     public Image[] countdownImages;
+    public Image panelRound;
     
 
     private void Start()
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
         HideGameOverPanel();
 
         //StartCountdownCoroutine();
+        panelRound.gameObject.SetActive(false);
     }
 
     internal void ShowGameOverPanel()
@@ -92,6 +94,8 @@ public class UIManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+
+        panelRound.gameObject.SetActive(true);
         for (int i = 0; i < countdownImages.Length; i++)
         {
             countdownImages[i].gameObject.SetActive(true);
@@ -99,6 +103,9 @@ public class UIManager : MonoBehaviour
             countdownImages[i].gameObject.SetActive(false);
         }
         yield return new WaitForSeconds(0.3f);
+
+
+        panelRound.gameObject.SetActive(false);
         GameManager.instance.StartGame();
     }
 
