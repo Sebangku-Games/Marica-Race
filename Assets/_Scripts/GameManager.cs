@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
 
         isGameRunning = false;
-
+        
     }
 
     public void StartNextRound(){
