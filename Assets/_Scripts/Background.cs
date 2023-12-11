@@ -18,6 +18,12 @@ public class Background : MonoBehaviour
         SpawnBackgroundPart2();
         SpawnBackgroundPart1();
         SpawnBackgroundPart2();
+        SpawnBackgroundPart1();
+        SpawnBackgroundPart2();
+        SpawnBackgroundPart1();
+        SpawnBackgroundPart2();
+        SpawnBackgroundPart1();
+        SpawnBackgroundPart2();
 
     }
 
@@ -25,7 +31,9 @@ public class Background : MonoBehaviour
     {
         if (Vector3.Distance(player.GetPosition(), lastEndPosition) < PLAYER_DISTANCE_SPAWN_LEVEL_PART){
             SpawnBackgroundPart1();
+            DestroyBackground();
             SpawnBackgroundPart2();
+            DestroyBackground();
         }
     }
 
@@ -43,5 +51,11 @@ public class Background : MonoBehaviour
     {
         Transform backgroundTransform = Instantiate(background, spawnPosition, Quaternion.identity, transform);
         return backgroundTransform;
+    }
+
+    private void DestroyBackground()
+    {
+        // destroy the first child gameobject of this transform
+        Destroy(transform.GetChild(0).gameObject);
     }
 }
