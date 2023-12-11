@@ -50,6 +50,8 @@ public class UIManager : MonoBehaviour
 
         // Set color based on the current area
         Color textColor;
+        Color outlineColor = Color.black;
+        float outlineWidth = 0.3f; // You can adjust the outline width as needed
         switch (area)
         {
             case "Green Area":
@@ -72,6 +74,9 @@ public class UIManager : MonoBehaviour
         // Set the color of the TextMeshPro text
         areaText.color = textColor;
 
+        // Add outline to the text
+        areaText.outlineColor = outlineColor;
+        areaText.outlineWidth = outlineWidth;
         // Optionally, you can add more UI-related logic here
     }
 

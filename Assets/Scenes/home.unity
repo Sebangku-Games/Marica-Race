@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 1088851581}
   - component: {fileID: 1088851580}
   - component: {fileID: 1088851579}
+  - component: {fileID: 1088851583}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -369,6 +370,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1088851583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088851578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd760a45ea734045b889f8cb7e16ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318979520
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +464,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1318979523}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1088851583}
+        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+        m_MethodName: StopCoroutine
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gameplay
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1318979523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.177, y: 0.62600005}
   m_AnchorMax: {x: 0.80753857, y: 0.89800006}
-  m_AnchoredPosition: {x: -0.00015259, y: 0.00016784668}
+  m_AnchoredPosition: {x: -0.00015258789, y: 0.00016784668}
   m_SizeDelta: {x: 0.00028992, y: -0.0003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717821955
@@ -949,7 +974,7 @@ GameObject:
   - component: {fileID: 1837321874}
   - component: {fileID: 1837321873}
   m_Layer: 5
-  m_Name: button1 (1)
+  m_Name: sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,7 +1095,7 @@ GameObject:
   - component: {fileID: 1859518383}
   - component: {fileID: 1859518382}
   m_Layer: 5
-  m_Name: button1
+  m_Name: about
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
