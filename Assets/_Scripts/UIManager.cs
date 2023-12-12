@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     public Image[] countdownImages;
     public Image panelRound;
     public GameObject teksConfetti;
-    
+    public GameObject teksConfettired;
 
     private void Start()
     {
@@ -49,6 +49,7 @@ public class UIManager : MonoBehaviour
     {
         areaText.text = "" + area;
         teksConfetti.SetActive(false);
+        teksConfettired.SetActive(false);
         // Set color based on the current area
         Color textColor;
         switch (area)
@@ -65,6 +66,7 @@ public class UIManager : MonoBehaviour
             case "Red Area":
                 textColor = Color.red;
                 areaText.text = "Kasian";
+                teksConfettired?.SetActive(true);
                 break;
             default:
                 textColor = Color.white;
