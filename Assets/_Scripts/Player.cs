@@ -8,6 +8,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float durationLerp = 1f;
     [SerializeField] private float totalDistance;
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        // get animator component on children
+        animator = GetComponentInChildren<Animator>();
+    }
     
 
     public void MoveToRightScreen(float distance)
@@ -53,5 +61,22 @@ public class Player : MonoBehaviour
     internal Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public void PlayBoostParticle(){
+        // get all particle system in child and play it all together
+        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem ps in particleSystems)
+        {
+            ps.Play();
+        }
+    }
+
+    public void PlayMoveAnimation(){
+        animator.SetTrigger("PlayerMove");
+    }
+
+    public void SetPenaltyAnimation(bool isPenalty){
+        animator.SetBool("PlayerPenalty", isPenalty);
     }
 }

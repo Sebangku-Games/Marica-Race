@@ -13,9 +13,18 @@ public class EnemyAI : Player
 
     private float distanceToMove;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        // get animator component on children
+        animator = GetComponentInChildren<Animator>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        
 
         interval = GameManager.instance.currentRoundData.enemyMoveInterval;
         chanceToMove0 = GameManager.instance.currentRoundData.chanceToMove0;
@@ -50,5 +59,10 @@ public class EnemyAI : Player
 
     public float GetEnemyMoveDistance(){
         return distanceToMove;
+    }
+
+    public void TriggerMoveAnimation()
+    {
+        animator.SetTrigger("EnemyMove");
     }
 }

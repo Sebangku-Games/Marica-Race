@@ -21,11 +21,15 @@ public class Penalty : MonoBehaviour
     private void CheckAmountRedClickInARow(){
         if (amountRedClickInARow > amountToGetPenalty){
             GameManager.instance.isPenalty = true;
+            
+            GameManager.instance.player.SetPenaltyAnimation(true);
         }
     }
 
     public void ResetAmountRedClickInARow(){
         amountRedClickInARow = 0;
         GameManager.instance.isPenalty = false;
+        
+        GameManager.instance.player.SetPenaltyAnimation(false);
     }
 }

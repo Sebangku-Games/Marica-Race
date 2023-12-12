@@ -75,11 +75,14 @@ public class GameManager : MonoBehaviour
 
         boost.UpdateBoost();
 
+        player.PlayMoveAnimation();
+
         if (isBoosting)
         {
             // Debug.Log("Boost");
             player.MoveToRightScreen(2f);
             pathChecker.UpdatePathCheckerPlayer(2f);
+            player.PlayBoostParticle();
         }
         else
         {
@@ -92,6 +95,9 @@ public class GameManager : MonoBehaviour
         boost.ResetAmountGreenClickInARow();
         penalty.ResetAmountRedClickInARow();
         scrollbarPointer.ResetScrollbarPointerSpeed();
+
+        
+        player.PlayMoveAnimation();
 
         player.MoveToRightScreen(0.5f);
         pathChecker.UpdatePathCheckerPlayer(0.5f);
@@ -211,6 +217,11 @@ public class GameManager : MonoBehaviour
             float selectedDistance = enemyAIs.SelectDistance();
 
             enemyAIs.MoveToRightScreen(selectedDistance);
+
+            if (selectedDistance != 0)
+            {
+                enemyAIs.TriggerMoveAnimation();
+            }
 
             // Call the UpdatePathChecker method with the enemy index and distance
             pathChecker.UpdatePathChecker(enemyAIs.enemyIndex, selectedDistance);
