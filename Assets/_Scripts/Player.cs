@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         transform.position = targetPosition;
 
         yield return new WaitForSeconds(duration);
+        yield return new WaitForEndOfFrame();
         GameManager.instance.CheckRoundOver();
     }
 

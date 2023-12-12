@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705409439134964351}
   - component: {fileID: 5705409439134964350}
+  - component: {fileID: 1979881729}
   m_Layer: 0
   m_Name: Pinggir sawah
   m_TagString: Untagged
@@ -115,6 +116,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1979881729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705409439134964348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370c26572e7b86f47a5337ae6413e492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.3
+  horizontalOnly: 1
 --- !u!1 &5705409439168523532
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705409439168523535}
   - component: {fileID: 5705409439168523534}
+  - component: {fileID: 866303166}
   m_Layer: 0
   m_Name: gunung
   m_TagString: Untagged
@@ -199,6 +215,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &866303166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705409439168523532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370c26572e7b86f47a5337ae6413e492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.7
+  horizontalOnly: 1
 --- !u!1 &5705409439198630498
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705409439198630501}
   - component: {fileID: 5705409439198630500}
+  - component: {fileID: 1901186249}
   m_Layer: 0
   m_Name: Sawah
   m_TagString: Untagged
@@ -229,7 +260,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5705409440026443634}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5705409439198630500
 SpriteRenderer:
@@ -283,6 +314,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1901186249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705409439198630498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370c26572e7b86f47a5337ae6413e492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.5
+  horizontalOnly: 1
 --- !u!1 &5705409440026443635
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,14 +351,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5705409440026443635}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5705409439198630501}
-  - {fileID: 5705409439134964351}
   - {fileID: 5705409440458463675}
+  - {fileID: 5705409439134964351}
+  - {fileID: 5705409439198630501}
   - {fileID: 5705409439168523535}
   - {fileID: 5705409440968944753}
   - {fileID: 3412874411201169798}
@@ -330,6 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705409440458463675}
   - component: {fileID: 5705409440458463674}
+  - component: {fileID: 843446570}
   m_Layer: 0
   m_Name: jalan
   m_TagString: Untagged
@@ -350,7 +396,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5705409440026443634}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5705409440458463674
 SpriteRenderer:
@@ -404,6 +450,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &843446570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705409440458463672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370c26572e7b86f47a5337ae6413e492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.2
+  horizontalOnly: 1
 --- !u!1 &5705409440968944766
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5705409440968944753}
   - component: {fileID: 5705409440968944752}
+  - component: {fileID: 446938872}
   m_Layer: 0
   m_Name: awan
   m_TagString: Untagged
@@ -488,3 +549,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &446938872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705409440968944766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370c26572e7b86f47a5337ae6413e492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0.9
+  horizontalOnly: 1

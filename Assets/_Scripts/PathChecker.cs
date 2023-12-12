@@ -84,7 +84,6 @@ public class PathChecker : MonoBehaviour
         {
             enemy1.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, time / duration);
             time += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
         }
 
         enemy1.transform.localPosition = targetPosition;
@@ -109,7 +108,6 @@ public class PathChecker : MonoBehaviour
         {
             enemy2.transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, time / duration);
             time += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
         }
 
         enemy2.transform.localPosition = targetPosition;
