@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool isBoosting = false;
     public bool isPenalty = false;
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject finishLinePrefab;
     [SerializeField] private List<GameObject> enemyAI;
 
     public Player player;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         SpawnEnemies();
+        SpawnFinishLine();
 
         isGameRunning = true;
     }
@@ -242,5 +244,12 @@ public class GameManager : MonoBehaviour
 
         // scrollbar
         scrollbarPointer.duration = currentRoundData.scrollbarPointerSpeed;
+    }
+
+    private void SpawnFinishLine(){
+        // spawn finish line based on Player position + distanceToFinish
+        Vector2 finishLineSpawnPosition = new Vector2(player.transform.position.x + roundManager.distanceToFinish, player.transform.position.y);
+
+        GameObject finishLine = Instantiate(finishLinePrefab, finishLineSpawnPosition, Quaternion.identity);
     }
 }
