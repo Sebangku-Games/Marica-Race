@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5705409439134964351}
   - component: {fileID: 5705409439134964350}
   m_Layer: 0
-  m_Name: Background2
+  m_Name: Pinggir sawah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -12
+  m_SortingOrder: -7
   m_Sprite: {fileID: 21300000, guid: 8543013c50ceb1c478533991316c98b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 5705409439168523535}
   - component: {fileID: 5705409439168523534}
   m_Layer: 0
-  m_Name: Background4
+  m_Name: gunung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -14
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300000, guid: adde66595dbae07418a13b3d7a395cf1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 5705409439198630501}
   - component: {fileID: 5705409439198630500}
   m_Layer: 0
-  m_Name: Background1
+  m_Name: Sawah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -11
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: bc0bcedc5c3b90944b4bc56abdf672c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 5705409440458463675}
   - component: {fileID: 5705409440458463674}
   m_Layer: 0
-  m_Name: Background3
+  m_Name: jalan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +392,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -13
+  m_SortingOrder: -6
   m_Sprite: {fileID: 21300000, guid: 97453c41bf505d044ac71ba37c4b0524, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 5705409440968944753}
   - component: {fileID: 5705409440968944752}
   m_Layer: 0
-  m_Name: Background5
+  m_Name: awan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -15
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: c6fdfc25ad41eec4398ee9c88d7c3728, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

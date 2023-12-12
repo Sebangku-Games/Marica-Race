@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public Image[] countdownImages;
     public Image panelRound;
+    public GameObject teksConfetti;
     
 
     private void Start()
@@ -47,7 +48,7 @@ public class UIManager : MonoBehaviour
     public void ShowTextArea(string area)
     {
         areaText.text = "" + area;
-
+        teksConfetti.SetActive(false);
         // Set color based on the current area
         Color textColor;
         switch (area)
@@ -55,6 +56,7 @@ public class UIManager : MonoBehaviour
             case "Green Area":
                 textColor = Color.green;
                 areaText.text = "Mantap";
+                teksConfetti.SetActive(true);
                 break;
             case "Yellow Area":
                 textColor = Color.yellow;
