@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool isPenalty = false;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject finishLinePrefab;
+    private List<GameObject> finishLines = new List<GameObject>();
     [SerializeField] private List<GameObject> enemyAI;
 
     public Player player;
@@ -185,8 +186,8 @@ public class GameManager : MonoBehaviour
 
     private void SpawnEnemies(){
         // spawn enemies based on Player position + give y.offset 2 & -2
-        Vector2 enemy1SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y + 2f);
-        Vector2 enemy2SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y - 2f);
+        Vector2 enemy1SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y + 1.5f);
+        Vector2 enemy2SpawnPosition = new Vector2(player.transform.position.x, player.transform.position.y - 1.5f);
 
         GameObject enemy1 = Instantiate(enemyPrefab, enemy1SpawnPosition, Quaternion.identity);
         enemy1.GetComponent<EnemyAI>().enemyIndex = 1;  // Set the enemyIndex for enemy1
@@ -229,6 +230,13 @@ public class GameManager : MonoBehaviour
         }
 
         enemyAI.Clear();
+
+        // destroy first finish line
+        if (finishLines.Count > 1)
+        {
+            Destroy(finishLines[0]);
+            finishLines.RemoveAt(0);
+        }
     }
 
     private void UpdateAllRoundData(){
@@ -248,8 +256,13 @@ public class GameManager : MonoBehaviour
 
     private void SpawnFinishLine(){
         // spawn finish line based on Player position + distanceToFinish
-        Vector2 finishLineSpawnPosition = new Vector2(player.transform.position.x + roundManager.distanceToFinish, player.transform.position.y);
+        Vector2 finishLineSpawnPosition = new Vector2(player.transform.position.x + roundManager.distanceToFinish, player.transform.position.y - 0.4f);
 
         GameObject finishLine = Instantiate(finishLinePrefab, finishLineSpawnPosition, Quaternion.identity);
+        finishLines.Add(finishLine);
+    }
+
+    private void DestroyGameObject(GameObject gameObject){
+        Destroy(gameObject);
     }
 }
