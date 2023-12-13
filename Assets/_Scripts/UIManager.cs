@@ -38,11 +38,21 @@ public class UIManager : MonoBehaviour
     {
         hideText();
         roundOverPanel.SetActive(true);
+        UpdateRoundOverText();
     }
 
     internal void HideRoundOverPanel()
     {
         roundOverPanel.SetActive(false);
+    }
+
+    public void UpdateRoundOverText(){
+        roundOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Round " + GameManager.instance.roundManager.currentRound + " Over";
+    }
+
+    public void UpdatePanelRoundText()
+    {
+        panelRound.GetComponentInChildren<TextMeshProUGUI>().text = "Ronde " + GameManager.instance.roundManager.currentRound;
     }
 
     public void ShowTextArea(string area)
@@ -96,6 +106,7 @@ public class UIManager : MonoBehaviour
 
     public void StartCountdownCoroutine()
     {
+        UpdatePanelRoundText();
         StartCoroutine(StartCountdown());
     }
 
