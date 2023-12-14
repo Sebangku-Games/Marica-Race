@@ -26,7 +26,7 @@ public class GooglePlayGamesServices : MonoBehaviour
                 Debug.Log("Login Success");
                 // unlock success login achievement
 
-                GetComponent<Achievements>().UnlockAchievementLogin();
+                //GetComponent<Achievements>().UnlockAchievementLogin();
             }
             else
             {

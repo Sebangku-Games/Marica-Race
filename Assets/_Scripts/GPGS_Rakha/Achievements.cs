@@ -6,20 +6,14 @@ using UnityEngine.SocialPlatforms;
 
 public class Achievements : MonoBehaviour
 {
-    const string Ach_Login = "CgkIi8Dh0-sKEAIQCw";
-    // HIDDEN ACHIEVEMENT
-    const string Ach_ClearLessThan2Seconds = "CgkIi8Dh0-sKEAIQAw";
-    const string Ach_KetemuHewanBuas = "CgkIi8Dh0-sKEAIQCg";
-
-    // REVEALED ACHIEVEMENT
-    //const string Ach_IdTestLOL = "CgkIi8Dh0-sKEAIQBA";
-    const string Ach_IdHutan = "CgkIi8Dh0-sKEAIQBQ";
-    const string Ach_IdGurun = "CgkIi8Dh0-sKEAIQBg";
-    const string Ach_IdEs = "CgkIi8Dh0-sKEAIQBw";
-    const string Ach_IdAir = "CgkIi8Dh0-sKEAIQCA";
-    const string Ach_IdSeluruhWilayah = "CgkIi8Dh0-sKEAIQCQ";
-
-    //[SerializeField] private GameObject loginPanel;
+    const string ID_ACH_FIRSTROUNDCLEAR = "CgkI_fC6_IEPEAIQAw";
+    const string ID_ACH_FIFTHROUNDCLEAR = "CgkI_fC6_IEPEAIQBA";
+    const string ID_ACH_TENTHROUNDCLEAR = "CgkI_fC6_IEPEAIQBQ";
+    const string ID_ACH_FIFTEENTHROUNDCLEAR = "CgkI_fC6_IEPEAIQBg";
+    const string ID_ACH_TWENTIETHROUNDCLEAR = "CgkI_fC6_IEPEAIQBw";
+    const string ID_ACH_BANTENGMARAH = "CgkI_fC6_IEPEAIQCA";
+    const string ID_ACH_BOOST = "CgkI_fC6_IEPEAIQCQ";
+    const string ID_ACH_HIDDEN = "CgkI_fC6_IEPEAIQCg";
 
     public void ShowAchievementUI()
     {
@@ -45,36 +39,47 @@ public class Achievements : MonoBehaviour
     }
 
 
-    public void UnlockAchievementLogin(){
-        ReportProgressAchievement(Ach_Login, 100f);
-    }
+    // public void UnlockAchievementLogin(){
+    //     ReportProgressAchievement(Ach_Login, 100f);
+    // }
 
     // unlock achievement for each
-    public void UnlockAchievement(string achievementName)
+    public void UnlockAchievement(int index)
     {
-        switch (achievementName)
+        switch (index)
         {
-            case "Hutan":
-                ReportProgressAchievement(Ach_IdHutan, 100f);
+            case 1:
+                ReportProgressAchievement(ID_ACH_FIRSTROUNDCLEAR, 100f);
                 break;
-            case "Gurun":
-                ReportProgressAchievement(Ach_IdGurun, 100f);
+
+            case 2:
+                ReportProgressAchievement(ID_ACH_FIFTHROUNDCLEAR, 100f);
                 break;
-            case "Es":
-                ReportProgressAchievement(Ach_IdEs, 100f);
+
+            case 3:
+                ReportProgressAchievement(ID_ACH_TENTHROUNDCLEAR, 100f);
                 break;
-            case "Air":
-                ReportProgressAchievement(Ach_IdAir, 100f);
+            
+            case 4:
+                ReportProgressAchievement(ID_ACH_FIFTEENTHROUNDCLEAR, 100f);
                 break;
-            case "SeluruhWilayah":
-                ReportProgressAchievement(Ach_IdSeluruhWilayah, 100f);
+            
+            case 5:
+                ReportProgressAchievement(ID_ACH_TWENTIETHROUNDCLEAR, 100f);
                 break;
-            case "ClearLessThan2Seconds":
-                ReportProgressAchievement(Ach_ClearLessThan2Seconds, 100f);
+
+            case 6:
+                ReportProgressAchievement(ID_ACH_BANTENGMARAH, 100f);
                 break;
-            case "HewanBuas":
-                ReportProgressAchievement(Ach_KetemuHewanBuas, 100f);
+
+            case 7:
+                ReportProgressAchievement(ID_ACH_BOOST, 100f);
                 break;
+
+            case 8: //belum, TODO
+                ReportProgressAchievement(ID_ACH_HIDDEN, 100f);
+                break;
+            
             default:
                 break;
         }
