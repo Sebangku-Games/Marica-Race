@@ -28,6 +28,12 @@ public class UIManager : MonoBehaviour
     internal void ShowGameOverPanel()
     {
         gameOverPanel.SetActive(true);
+        UpdateGameOverText();
+    }
+
+    private void UpdateGameOverText()
+    {
+        gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = "KAMU KALAH RONDE " + GameManager.instance.roundManager.currentRound;
     }
 
     private void HideGameOverPanel()
@@ -50,7 +56,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void UpdateRoundOverText(){
-        roundOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Round " + GameManager.instance.roundManager.currentRound + " Over";
+        roundOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = "KAMU MENANG RONDE " + GameManager.instance.roundManager.currentRound;
     }
 
     public void UpdatePanelRoundText()

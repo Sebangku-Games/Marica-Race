@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
 
         StopAllCoroutines();
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
         isGameRunning = false;
         
