@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-
+        AudioManager.instance.PlayCountdownSfx();
         panelRound.gameObject.SetActive(true);
         for (int i = 0; i < countdownImages.Length; i++)
         {

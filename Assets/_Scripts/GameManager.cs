@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
             player.MoveToRightScreen(2f);
             pathChecker.UpdatePathCheckerPlayer(2f);
             player.PlayBoostParticle();
+            AudioManager.instance.PlayBoostSfx();
 
             achievements.UnlockAchievement(7);
         }
@@ -250,6 +251,7 @@ public class GameManager : MonoBehaviour
             if (selectedDistance != 0)
             {
                 enemyAIs.TriggerMoveAnimation();
+                AudioManager.instance.PlayGreenSfx();
             }
 
             // Call the UpdatePathChecker method with the enemy index and distance

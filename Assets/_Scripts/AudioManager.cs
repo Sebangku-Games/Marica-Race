@@ -16,7 +16,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip roundOverSfx;
     public AudioClip gameOverSfx;
     public AudioClip penaltySfx;
-    //public AudioClip countdownSfx;
+    public AudioClip boostSfx;
+    public AudioClip countdownSfx;
     
 
     private void Awake()
@@ -89,10 +90,15 @@ public class AudioManager : MonoBehaviour
             audioSound.PlayOneShot(penaltySfx);
     }
 
-    // public void PlayCountdownSfx(){
-    //     if (onSound)
-    //         audioSound.PlayOneShot(countdownSfx);
-    // }
+    public void PlayBoostSfx(){
+        if (onSound)
+            audioSound.PlayOneShot(boostSfx);
+    }
+
+    public void PlayCountdownSfx(){
+        if (onSound)
+            audioSound.PlayOneShot(countdownSfx);
+    }
 
     
 }

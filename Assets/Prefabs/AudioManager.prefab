@@ -48,12 +48,14 @@ MonoBehaviour:
   audioSound: {fileID: 0}
   onSound: 1
   button: {fileID: 8300000, guid: 7a388badba79220438324ff741af49bb, type: 3}
-  greenSfx: {fileID: 8300000, guid: ee517d5ba18515b4ea1961dec5199fa7, type: 3}
-  yellowSfx: {fileID: 8300000, guid: e2323be39fcc7e046b79f0ffad44e976, type: 3}
+  greenSfx: {fileID: 8300000, guid: a29f296c50bab184289da4a5d5ad20b7, type: 3}
+  yellowSfx: {fileID: 8300000, guid: 9c59b085c25a2504fba41612a8aa498d, type: 3}
   redSfx: {fileID: 8300000, guid: 1b4caa8b45e3217408892d9ccc07ee3d, type: 3}
   roundOverSfx: {fileID: 8300000, guid: 50f29c3b9dbd9df49bf8b66c0c79e82a, type: 3}
   gameOverSfx: {fileID: 8300000, guid: 734036f466124df49b114b53a4de6e91, type: 3}
-  penaltySfx: {fileID: 8300000, guid: 5165efc6f4667424dbb0add7e92b313a, type: 3}
+  penaltySfx: {fileID: 8300000, guid: 90883c5eabe5a5a4fb2bba7fecce7a1e, type: 3}
+  boostSfx: {fileID: 8300000, guid: 4740152b4d8f77743b3c897506d29e2b, type: 3}
+  countdownSfx: {fileID: 8300000, guid: 1b1bdf22385d3fe4a9ae1e14f66bfd16, type: 3}
 --- !u!82 &4842297103202455767
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68,7 +70,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
