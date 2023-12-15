@@ -167,6 +167,7 @@ public class ScrollbarPointer : MonoBehaviour
         if (hasIncreasedSpeed){
             return;
         }
+        AudioManager.instance.PlayPenaltySfx();
 
         // Debug.Log("INcrease scrollbar pointer speed");
         duration = duration / 2;

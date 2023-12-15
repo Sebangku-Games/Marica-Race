@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         boost.UpdateBoost();
 
         player.PlayMoveAnimation();
+        AudioManager.instance.PlayGreenSfx();
 
         if (isBoosting)
         {
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         
         player.PlayMoveAnimation();
+        AudioManager.instance.PlayYellowSfx();
 
         player.MoveToRightScreen(0.5f);
         pathChecker.UpdatePathCheckerPlayer(0.5f);
@@ -115,6 +117,8 @@ public class GameManager : MonoBehaviour
         boost.ResetAmountGreenClickInARow();
         
         penalty.UpdatePenalty();
+
+        AudioManager.instance.PlayRedSfx();
 
         if (isPenalty)
         {
@@ -150,6 +154,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver(){
         Debug.Log("Game END");
+        AudioManager.instance.PlayGameOverSfx();
         uIManager.ShowGameOverPanel();
         SetLeaderboardScore();
 
@@ -160,6 +165,7 @@ public class GameManager : MonoBehaviour
 
     private void RoundOver(){
         Debug.Log("Round END");
+        AudioManager.instance.PlayRoundOverSfx();
         uIManager.ShowRoundOverPanel();
         player.ResetDistance();
         DestroyEnemies();
