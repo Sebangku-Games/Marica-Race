@@ -12,14 +12,13 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public Image[] countdownImages;
     public Image panelRound;
-    public GameObject teksConfetti;
-    public GameObject teksConfettired;
+    public ParticleSystem gren;
+    public ParticleSystem red;
 
     private void Start()
     {
         HideRoundOverPanel();
         HideGameOverPanel();
-
         //StartCountdownCoroutine();
         panelRound.gameObject.SetActive(false);
     }
@@ -58,8 +57,7 @@ public class UIManager : MonoBehaviour
     public void ShowTextArea(string area)
     {
         areaText.text = "" + area;
-        teksConfetti.SetActive(false);
-        teksConfettired.SetActive(false);
+        
         // Set color based on the current area
         Color textColor;
         Color outlineColor = Color.black;
@@ -69,7 +67,7 @@ public class UIManager : MonoBehaviour
             case "Green Area":
                 textColor = Color.green;
                 areaText.text = "Mantap";
-                teksConfetti.SetActive(true);
+                gren.Play();
                 break;
             case "Yellow Area":
                 textColor = Color.yellow;
@@ -78,7 +76,7 @@ public class UIManager : MonoBehaviour
             case "Red Area":
                 textColor = Color.red;
                 areaText.text = "Kasian";
-                teksConfettired.SetActive(true);
+                red.Play();
                 break;
             default:
                 textColor = Color.white;
