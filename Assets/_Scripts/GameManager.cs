@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
         uIManager.ShowGameOverPanel();
         SetLeaderboardScore();
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
         isGameRunning = false;
     }
