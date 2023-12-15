@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     private UIManager uIManager;
     private PathChecker pathChecker;
 
+    private Leaderboards leaderboards;
+    private Achievements achievements;
+
     public RoundData[] roundDatas;
     public RoundData currentRoundData;
 
@@ -41,6 +44,9 @@ public class GameManager : MonoBehaviour
         roundManager = GetComponent<RoundManager>();
         uIManager = GetComponent<UIManager>();
         pathChecker = FindObjectOfType<PathChecker>();
+
+        leaderboards = FindObjectOfType<Leaderboards>();
+        achievements = FindObjectOfType<Achievements>();
 
         
         UpdateCurrentRoundData();
@@ -83,6 +89,8 @@ public class GameManager : MonoBehaviour
             player.MoveToRightScreen(2f);
             pathChecker.UpdatePathCheckerPlayer(2f);
             player.PlayBoostParticle();
+
+            achievements.UnlockAchievement(7);
         }
         else
         {
@@ -112,6 +120,8 @@ public class GameManager : MonoBehaviour
         {
             // Debug.Log("Penalty");
             scrollbarPointer.IncreaseScrollbarPointerSpeed();
+
+            achievements.UnlockAchievement(6);
         }
         else
         {
@@ -141,6 +151,7 @@ public class GameManager : MonoBehaviour
     private void GameOver(){
         Debug.Log("Game END");
         uIManager.ShowGameOverPanel();
+        SetLeaderboardScore();
 
         Time.timeScale = 0f;
 
@@ -152,6 +163,18 @@ public class GameManager : MonoBehaviour
         uIManager.ShowRoundOverPanel();
         player.ResetDistance();
         DestroyEnemies();
+
+        if (roundManager.currentRound == 1){
+            achievements.UnlockAchievement(1);
+        } else if (roundManager.currentRound == 5){
+            achievements.UnlockAchievement(2);
+        } else if (roundManager.currentRound == 10){
+            achievements.UnlockAchievement(3);
+        } else if (roundManager.currentRound == 15){
+            achievements.UnlockAchievement(4);
+        } else if (roundManager.currentRound == 20){
+            achievements.UnlockAchievement(5);
+        }
 
         StopAllCoroutines();
 
@@ -271,6 +294,11 @@ public class GameManager : MonoBehaviour
 
         GameObject finishLine = Instantiate(finishLinePrefab, finishLineSpawnPosition, Quaternion.identity);
         finishLines.Add(finishLine);
+    }
+
+    private void SetLeaderboardScore(){
+        // set leaderboard score
+        leaderboards.AddScoreToLeaderboard(roundManager.currentRound);
     }
 
     private void DestroyGameObject(GameObject gameObject){

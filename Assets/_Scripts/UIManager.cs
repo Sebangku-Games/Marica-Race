@@ -38,11 +38,21 @@ public class UIManager : MonoBehaviour
     {
         hideText();
         roundOverPanel.SetActive(true);
+        UpdateRoundOverText();
     }
 
     internal void HideRoundOverPanel()
     {
         roundOverPanel.SetActive(false);
+    }
+
+    public void UpdateRoundOverText(){
+        roundOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Round " + GameManager.instance.roundManager.currentRound + " Over";
+    }
+
+    public void UpdatePanelRoundText()
+    {
+        panelRound.GetComponentInChildren<TextMeshProUGUI>().text = "Ronde " + GameManager.instance.roundManager.currentRound;
     }
 
     public void ShowTextArea(string area)
@@ -52,6 +62,8 @@ public class UIManager : MonoBehaviour
         teksConfettired.SetActive(false);
         // Set color based on the current area
         Color textColor;
+        Color outlineColor = Color.black;
+        float outlineWidth = 0.3f; // You can adjust the outline width as needed
         switch (area)
         {
             case "Green Area":
@@ -66,7 +78,7 @@ public class UIManager : MonoBehaviour
             case "Red Area":
                 textColor = Color.red;
                 areaText.text = "Kasian";
-                teksConfettired?.SetActive(true);
+                teksConfettired.SetActive(true);
                 break;
             default:
                 textColor = Color.white;
@@ -76,6 +88,9 @@ public class UIManager : MonoBehaviour
         // Set the color of the TextMeshPro text
         areaText.color = textColor;
 
+        // Add outline to the text
+        areaText.outlineColor = outlineColor;
+        areaText.outlineWidth = outlineWidth;
         // Optionally, you can add more UI-related logic here
     }
 
@@ -91,6 +106,7 @@ public class UIManager : MonoBehaviour
 
     public void StartCountdownCoroutine()
     {
+        UpdatePanelRoundText();
         StartCoroutine(StartCountdown());
     }
 
