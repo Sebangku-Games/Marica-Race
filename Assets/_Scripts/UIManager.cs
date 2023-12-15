@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     public Image panelRound;
     public ParticleSystem gren;
     public ParticleSystem red;
+    public ParticleSystem finish1;
+    public ParticleSystem finish2;
 
     private void Start()
     {
@@ -38,6 +40,8 @@ public class UIManager : MonoBehaviour
         hideText();
         roundOverPanel.SetActive(true);
         UpdateRoundOverText();
+        finish1.Play();
+        finish2.Play();
     }
 
     internal void HideRoundOverPanel()
