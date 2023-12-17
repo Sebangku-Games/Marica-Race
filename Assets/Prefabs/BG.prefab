@@ -561,5 +561,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c26572e7b86f47a5337ae6413e492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0.9
+  multiplier: 0.8
   horizontalOnly: 1

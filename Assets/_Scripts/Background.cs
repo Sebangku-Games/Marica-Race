@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 200f;
+    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 400f;
 
     [SerializeField] private Transform background1;
     [SerializeField] private Transform background2;
@@ -16,14 +16,11 @@ public class Background : MonoBehaviour
     {
         lastEndPosition = background1.Find("EndPosition").position;
         SpawnBackgroundPart2();
-        SpawnBackgroundPart1();
-        SpawnBackgroundPart2();
-        SpawnBackgroundPart1();
-        SpawnBackgroundPart2();
-        SpawnBackgroundPart1();
-        SpawnBackgroundPart2();
-        SpawnBackgroundPart1();
-        SpawnBackgroundPart2();
+        for (int i = 0; i < 10; i++) // 10 is the number of background parts (background1 + background2 = 2 parts, so 10 parts = 5 background1 + 5 background2 = 10 parts)
+        {
+            SpawnBackgroundPart1();
+            SpawnBackgroundPart2();
+        }
 
     }
 

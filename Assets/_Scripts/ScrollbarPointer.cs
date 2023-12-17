@@ -114,10 +114,11 @@ public class ScrollbarPointer : MonoBehaviour
     {
         // Toggle the isLerping flag to start/stop lerping
         isLerping = !isLerping;
+        GameManager.instance.isPlayerMoving = !GameManager.instance.isPlayerMoving;
     }
 
     public void UpdatePlayerInput(){
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !GameManager.instance.isPlayerMoving)
         {
             StartCoroutine(PlayerInputCoroutine());
         }

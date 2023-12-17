@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public bool isPlayerMoving = false;
     public bool isGameRunning = false;
     public bool isBoosting = false;
     public bool isPenalty = false;
