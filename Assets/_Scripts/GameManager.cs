@@ -321,6 +321,14 @@ public class GameManager : MonoBehaviour
         leaderboards.AddScoreToLeaderboard(roundManager.currentRound);
     }
 
+    public void PauseGame(){
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame(){
+        Time.timeScale = 1f;
+    }
+
     private void DestroyGameObject(GameObject gameObject){
         Destroy(gameObject);
     }

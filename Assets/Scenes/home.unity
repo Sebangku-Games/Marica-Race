@@ -3319,7 +3319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1994676815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3656,9 +3656,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4842297103202455767, guid: d9d697e0e89c1e34cb25da860110e373, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9995f439ff4074f4d883fd2a846e1d6e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d697e0e89c1e34cb25da860110e373, type: 3}

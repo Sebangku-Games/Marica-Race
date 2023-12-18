@@ -16,13 +16,22 @@ public class UIManager : MonoBehaviour
     public ParticleSystem red;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
+    public GameObject panelRoundGameplay;
+    public GameObject giveUpButton;
 
     private void Start()
     {
+        panelRoundGameplay.SetActive(false);
+        giveUpButton.SetActive(false);
         HideRoundOverPanel();
         HideGameOverPanel();
         //StartCountdownCoroutine();
         panelRound.gameObject.SetActive(false);
+    }
+
+    public void PlayButtonSoundSFX()
+    {
+        AudioManager.instance.PlayButton();
     }
 
     internal void ShowGameOverPanel()
@@ -63,6 +72,10 @@ public class UIManager : MonoBehaviour
     public void UpdatePanelRoundText()
     {
         panelRound.GetComponentInChildren<TextMeshProUGUI>().text = "Ronde " + GameManager.instance.roundManager.currentRound;
+    }
+
+    public void UpdatePanelRoundGameplay(){
+        panelRoundGameplay.GetComponentInChildren<TextMeshProUGUI>().text = "Ronde " + GameManager.instance.roundManager.currentRound;
     }
 
     public void ShowTextArea(string area)
@@ -116,6 +129,7 @@ public class UIManager : MonoBehaviour
     public void StartCountdownCoroutine()
     {
         UpdatePanelRoundText();
+        UpdatePanelRoundGameplay();
         StartCoroutine(StartCountdown());
     }
 
@@ -135,6 +149,8 @@ public class UIManager : MonoBehaviour
 
 
         panelRound.gameObject.SetActive(false);
+        panelRoundGameplay.SetActive(true);
+        giveUpButton.SetActive(true);
         GameManager.instance.StartGame();
     }
 

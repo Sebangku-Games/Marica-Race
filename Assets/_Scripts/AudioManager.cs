@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public AudioSource audioSound;
+    public AudioSource sfxSound;
     public bool onSound = true;
 
     public AudioClip button;
@@ -69,28 +70,26 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayButton(){
-        if (onSound)
-            audioSound.PlayOneShot(button);
+        sfxSound.PlayOneShot(button);
     }
 
     public void PlayGreenSfx(){
-        if (onSound)
-            audioSound.PlayOneShot(greenSfx);
+        sfxSound.PlayOneShot(greenSfx);
     }
 
     public void PlayYellowSfx(){
         if (onSound)
-            audioSound.PlayOneShot(yellowSfx);
+            sfxSound.PlayOneShot(yellowSfx);
     }
 
     public void PlayRedSfx(){
         if (onSound)
-            audioSound.PlayOneShot(redSfx);
+            sfxSound.PlayOneShot(redSfx);
     }
 
     public void PlayRoundOverSfx(){
         if (onSound)
-            audioSound.PlayOneShot(roundOverSfx);
+            sfxSound.PlayOneShot(roundOverSfx);
     }
 
     public void PlayGameOverSfx(){
@@ -98,24 +97,24 @@ public class AudioManager : MonoBehaviour
             return;
 
         if (onSound)
-            audioSound.PlayOneShot(gameOverSfx);
+            sfxSound.PlayOneShot(gameOverSfx);
         
         hasSFXGameOverPlayed = true;
     }
 
     public void PlayPenaltySfx(){
         if (onSound)
-            audioSound.PlayOneShot(penaltySfx);
+            sfxSound.PlayOneShot(penaltySfx);
     }
 
     public void PlayBoostSfx(){
         if (onSound)
-            audioSound.PlayOneShot(boostSfx);
+            sfxSound.PlayOneShot(boostSfx);
     }
 
     public void PlayCountdownSfx(){
         if (onSound)
-            audioSound.PlayOneShot(countdownSfx);
+            sfxSound.PlayOneShot(countdownSfx);
     }
 
     
