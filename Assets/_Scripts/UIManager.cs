@@ -33,7 +33,8 @@ public class UIManager : MonoBehaviour
 
     private void UpdateGameOverText()
     {
-        gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = "KAMU KALAH RONDE " + GameManager.instance.roundManager.currentRound;
+        // get text component on child[3]
+        gameOverPanel.GetComponentsInChildren<TextMeshProUGUI>()[3].text = "KAMU KALAH RONDE " + GameManager.instance.roundManager.currentRound;
     }
 
     private void HideGameOverPanel()

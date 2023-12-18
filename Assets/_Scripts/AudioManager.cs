@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip penaltySfx;
     public AudioClip boostSfx;
     public AudioClip countdownSfx;
+
+    private bool hasSFXGameOverPlayed = false;
     
 
     private void Awake()
@@ -28,11 +30,21 @@ public class AudioManager : MonoBehaviour
             instance = this;
 
         audioSound = GetComponent<AudioSource>();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
-        StartCoroutine(CheckSound());
+        hasSFXGameOverPlayed = false;
+        //StartCoroutine(CheckSound());
+        //audioSound.Play();
+    }
+
+    public void ToggleSound()
+    {
+        onSound = !onSound;
+        soundSettings();
+        Debug.Log("Sound: " + onSound);
     }
 
     IEnumerator CheckSound()
@@ -44,8 +56,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void soundSettings(bool on){
-        if (on)
+    public void soundSettings()
+    {
+        if (onSound)
         {
             audioSound.Play();
         }
@@ -81,8 +94,13 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayGameOverSfx(){
+        if (hasSFXGameOverPlayed)
+            return;
+
         if (onSound)
             audioSound.PlayOneShot(gameOverSfx);
+        
+        hasSFXGameOverPlayed = true;
     }
 
     public void PlayPenaltySfx(){

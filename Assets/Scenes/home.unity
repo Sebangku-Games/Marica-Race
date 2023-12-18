@@ -363,6 +363,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1488171447}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: ToggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &225124324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,7 +662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14285713, y: 0.7256781}
   m_AnchorMax: {x: 0.8571429, y: 0.8151557}
-  m_AnchoredPosition: {x: 0, y: -0.19999695}
+  m_AnchoredPosition: {x: 0, y: -0.2000122}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504987054
@@ -1519,7 +1531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22736701, y: 0.19765899}
   m_AnchorMax: {x: 0.76663303, y: 0.275}
-  m_AnchoredPosition: {x: -0.80000305, y: -0.6486206}
+  m_AnchoredPosition: {x: -0.7999878, y: -0.6486206}
   m_SizeDelta: {x: 0, y: 0.5417023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084133482
@@ -2528,7 +2540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1773077, y: 0.44814646}
   m_AnchorMax: {x: 0.83069235, y: 0.7254143}
-  m_AnchoredPosition: {x: -1.0000153, y: 0.29000854}
+  m_AnchoredPosition: {x: -1, y: 0.29000854}
   m_SizeDelta: {x: -0.84399414, y: -1.1784058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417360284
@@ -2639,7 +2651,6 @@ GameObject:
   - component: {fileID: 1479040196}
   - component: {fileID: 1479040195}
   - component: {fileID: 1479040194}
-  - component: {fileID: 1479040197}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2713,102 +2724,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1479040197
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479040193}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9995f439ff4074f4d883fd2a846e1d6e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1488171447 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3331794736188172034, guid: d9d697e0e89c1e34cb25da860110e373, type: 3}
@@ -2994,7 +2909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.177, y: 0.62600005}
   m_AnchorMax: {x: 0.80753857, y: 0.89800006}
-  m_AnchoredPosition: {x: -0.00015258789, y: -9.7}
+  m_AnchoredPosition: {x: -0.00015258789, y: -9.700012}
   m_SizeDelta: {x: 0.00028992, y: -0.0003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717821955
@@ -3200,6 +3115,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1488171447}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: ToggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859518383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3273,7 +3200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11765272, y: 0.36800003}
   m_AnchorMax: {x: 0.8924484, y: 0.7467804}
-  m_AnchoredPosition: {x: -1.010315, y: 0.30000305}
+  m_AnchoredPosition: {x: -1.010315, y: 0.2999878}
   m_SizeDelta: {x: -0.2850001, y: -0.49769974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911037945
@@ -3729,5 +3656,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4842297103202455767, guid: d9d697e0e89c1e34cb25da860110e373, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9995f439ff4074f4d883fd2a846e1d6e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d697e0e89c1e34cb25da860110e373, type: 3}

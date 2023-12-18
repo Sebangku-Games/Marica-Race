@@ -155,6 +155,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void GameOver(){
+        if (!isGameRunning)
+        {
+            return;
+        }
         Debug.Log("Game END");
         AudioManager.instance.PlayGameOverSfx();
         uIManager.ShowGameOverPanel();
@@ -206,6 +210,13 @@ public class GameManager : MonoBehaviour
     public void RestartGame(){
         // Reload Scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        Time.timeScale = 1f;
+    }
+
+    public void BackToMainMenu(){
+        // Load Main Menu Scene
+        SceneManager.LoadScene(0);
 
         Time.timeScale = 1f;
     }
