@@ -7,14 +7,22 @@ using TMPro;
 
 public class GooglePlayGamesServices : MonoBehaviour
 {
+    public static GooglePlayGamesServices instance;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+            instance = this;
+        
+        DontDestroyOnLoad(gameObject);
+    }
     //[SerializeField] private GameObject popupLoginFailed;
     // create script to auto sign in user to google play games
     void Start()
     {
         PlayGamesPlatform.Activate();
         SignIn();
-
-        DontDestroyOnLoad(gameObject);
     }
 
     void SignIn()

@@ -218,6 +218,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1088851583}
+        m_TargetAssemblyTypeName: menu, Assembly-CSharp
+        m_MethodName: keluar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &65686912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,18 +367,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1488171447}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ToggleSound
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -577,10 +577,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 24.35
   m_fontSizeBase: 60
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -712,10 +712,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
+  m_fontSize: 66.15
   m_fontSizeBase: 150
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1230,7 +1230,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850615942}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1238,9 +1238,9 @@ RectTransform:
   m_Father: {fileID: 2138949153}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.19044444, y: 0.2635}
-  m_AnchorMax: {x: 0.8571429, y: 0.46558335}
-  m_AnchoredPosition: {x: 2.9400024, y: -2}
+  m_AnchorMin: {x: 0.19044444, y: 0.17867622}
+  m_AnchorMax: {x: 0.8571429, y: 0.41128218}
+  m_AnchoredPosition: {x: 2.9400024, y: -1.999939}
   m_SizeDelta: {x: -5.880005, y: 0.3500061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850615944
@@ -1790,6 +1790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff9759f41397ed42927b65119e9dd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSound: {fileID: 1859518382}
+  offSound: {fileID: 225124323}
 --- !u!1 &1181128221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,7 +2107,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314726307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2113,9 +2115,9 @@ RectTransform:
   m_Father: {fileID: 1084133481}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.5999985}
+  m_AnchorMin: {x: 0.08468175, y: 0.13395484}
+  m_AnchorMax: {x: 0.9266521, y: 0.839356}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 1.6000137}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1314726309
@@ -2165,10 +2167,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
+  m_fontSize: 35.9
   m_fontSizeBase: 80
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2538,8 +2540,8 @@ RectTransform:
   m_Father: {fileID: 1512384795}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1773077, y: 0.44814646}
-  m_AnchorMax: {x: 0.83069235, y: 0.7254143}
+  m_AnchorMin: {x: 0.20679581, y: 0.4686866}
+  m_AnchorMax: {x: 0.7901462, y: 0.6884013}
   m_AnchoredPosition: {x: -1, y: 0.29000854}
   m_SizeDelta: {x: -0.84399414, y: -1.1784058}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2590,10 +2592,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
+  m_fontSize: 39.6
   m_fontSizeBase: 100
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2790,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.1764706}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3115,18 +3117,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1488171447}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ToggleSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1859518383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,9 +3188,9 @@ RectTransform:
   m_Father: {fileID: 2138949153}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.11765272, y: 0.36800003}
-  m_AnchorMax: {x: 0.8924484, y: 0.7467804}
-  m_AnchoredPosition: {x: -1.010315, y: 0.2999878}
+  m_AnchorMin: {x: 0.11765272, y: 0.39400002}
+  m_AnchorMax: {x: 0.8857144, y: 0.71676576}
+  m_AnchoredPosition: {x: -1.010315, y: 0.3000183}
   m_SizeDelta: {x: -0.2850001, y: -0.49769974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911037945
@@ -3253,10 +3243,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 22.75
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

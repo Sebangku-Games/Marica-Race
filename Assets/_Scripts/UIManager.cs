@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI areaText;
     public GameObject roundOverPanel;
     public GameObject gameOverPanel;
+    public TMP_Text gameOverText;
     public Image[] countdownImages;
     public Image panelRound;
     public ParticleSystem gren;
@@ -43,7 +44,7 @@ public class UIManager : MonoBehaviour
     private void UpdateGameOverText()
     {
         // get text component on child[3]
-        gameOverPanel.GetComponentsInChildren<TextMeshProUGUI>()[3].text = "KAMU KALAH RONDE " + GameManager.instance.roundManager.currentRound;
+        gameOverText.text = "KAMU KALAH RONDE " + GameManager.instance.roundManager.currentRound;
     }
 
     private void HideGameOverPanel()
