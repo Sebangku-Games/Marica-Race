@@ -16,8 +16,6 @@ public class UIManager : MonoBehaviour
     public ParticleSystem red;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
-    public GameObject giveupBtn;
-    public GameObject rondePanel;
 
     private void Start()
     {
@@ -31,8 +29,6 @@ public class UIManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         UpdateGameOverText();
-        giveupBtn.gameObject.SetActive(false);
-        rondePanel.gameObject.SetActive(false);
     }
 
     private void UpdateGameOverText()
@@ -43,15 +39,11 @@ public class UIManager : MonoBehaviour
 
     private void HideGameOverPanel()
     {
-        giveupBtn.gameObject.SetActive(true);
-        rondePanel.gameObject.SetActive(true);
         gameOverPanel.SetActive(false);
     }
 
     internal void ShowRoundOverPanel()
     {
-        giveupBtn.gameObject.SetActive(false);
-        rondePanel.gameObject.SetActive(false);
         hideText();
         roundOverPanel.SetActive(true);
         UpdateRoundOverText();
