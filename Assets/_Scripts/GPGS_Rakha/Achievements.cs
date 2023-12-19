@@ -76,7 +76,7 @@ public class Achievements : MonoBehaviour
                 ReportProgressAchievement(ID_ACH_BOOST, 100f);
                 break;
 
-            case 8: //belum, TODO
+            case 8: 
                 ReportProgressAchievement(ID_ACH_HIDDEN, 100f);
                 break;
             

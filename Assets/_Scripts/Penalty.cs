@@ -24,6 +24,10 @@ public class Penalty : MonoBehaviour
             
             GameManager.instance.player.SetPenaltyAnimation(true);
         }
+
+        if (amountRedClickInARow > 19){
+            GameManager.instance.achievements.UnlockAchievement(8);
+        }
     }
 
     public void ResetAmountRedClickInARow(){

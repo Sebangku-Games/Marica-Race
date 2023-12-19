@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private PathChecker pathChecker;
 
     private Leaderboards leaderboards;
-    private Achievements achievements;
+    public Achievements achievements;
 
     public RoundData[] roundDatas;
     public RoundData currentRoundData;

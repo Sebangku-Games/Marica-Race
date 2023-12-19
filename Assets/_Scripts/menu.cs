@@ -14,7 +14,20 @@ public class menu : MonoBehaviour
         onSound.onClick.AddListener(AudioManager.instance.ToggleSound);
         // Add listener for the offSound button
         offSound.onClick.AddListener(AudioManager.instance.ToggleSound);
+
+        SetActiveButton();
     }
+
+    private void SetActiveButton(){
+        if (AudioManager.instance.onSound){
+            onSound.gameObject.SetActive(true);
+            offSound.gameObject.SetActive(false);
+        } else {
+            onSound.gameObject.SetActive(false);
+            offSound.gameObject.SetActive(true);
+        }
+    }
+
     public void gantiscene(string scene)
     {
         SceneManager.LoadScene(scene);
