@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 400f;
+    private const float PLAYER_DISTANCE_SPAWN_LEVEL_PART = 100f;
 
     [SerializeField] private Transform background1;
     [SerializeField] private Transform background2;
