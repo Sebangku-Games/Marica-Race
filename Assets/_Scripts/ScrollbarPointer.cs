@@ -3,6 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Dear Programmer 
+
+// When I wrote this code, only God and I understood what I did.
+// Now, only God knows.
+
+// So if you are trying to optimize this routine and it fails (most surely),
+// please increase this counter as a warning for the next person:
+
+// total_hours_wasted_here = 2
+
 public class ScrollbarPointer : MonoBehaviour
 {
     public UIManager uiManager;
@@ -18,7 +28,7 @@ public class ScrollbarPointer : MonoBehaviour
 
     [Header("Pointer")]
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float radius = 0.1f;
+    [SerializeField] private float radius = 0.01f;
     private bool greenAreaDetected = false;
     private bool yellowAreaDetected = false;
 
@@ -52,16 +62,18 @@ public class ScrollbarPointer : MonoBehaviour
             return;
         }
         
-        CheckScrollBarPointer();
+        
 
         // If isLerping is true, lerp the position of the GameObject
         if (isLerping)
         {
             float t = Mathf.PingPong(Time.time / duration, 1.0f); // PingPong between 0 and 1
             transform.localPosition = Vector3.Lerp(initialPosition, targetPosition, t);
+
+            CheckScrollBarPointer();
+            UpdatePlayerInput();
         }
 
-        UpdatePlayerInput();
     }
 
     

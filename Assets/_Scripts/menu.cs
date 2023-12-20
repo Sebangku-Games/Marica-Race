@@ -8,12 +8,18 @@ public class menu : MonoBehaviour
 {
     public Button onSound;
     public Button offSound;
+    public Button achievementButton;
+    public Button leaderboardButton;
+
     private void Start()
     {
         // Add listener for the onSound button
         onSound.onClick.AddListener(AudioManager.instance.ToggleSound);
         // Add listener for the offSound button
         offSound.onClick.AddListener(AudioManager.instance.ToggleSound);
+
+        achievementButton.onClick.AddListener(GooglePlayGamesServices.instance.GetComponent<Achievements>().ShowAchievementUI);
+        leaderboardButton.onClick.AddListener(GooglePlayGamesServices.instance.GetComponent<Leaderboards>().ShowLeaderboardUI);
 
         SetActiveButton();
     }

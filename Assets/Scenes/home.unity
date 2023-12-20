@@ -998,18 +998,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3232950388626807303}
-        m_TargetAssemblyTypeName: Achievements, Assembly-CSharp
-        m_MethodName: ShowAchievementUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1488171447}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButton
@@ -1792,6 +1780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSound: {fileID: 1859518382}
   offSound: {fileID: 225124323}
+  achievementButton: {fileID: 623907789}
+  leaderboardButton: {fileID: 1346696865}
 --- !u!1 &1181128221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,7 +2107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08468175, y: 0.13395484}
   m_AnchorMax: {x: 0.9266521, y: 0.839356}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 1.6000137}
+  m_AnchoredPosition: {x: 0, y: 1.6000137}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1314726309
@@ -2445,18 +2435,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3232950388626807302}
-        m_TargetAssemblyTypeName: Leaderboards, Assembly-CSharp
-        m_MethodName: ShowLeaderboardUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1488171447}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButton
@@ -3569,28 +3547,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08a459f0a8fe5c4f8acd436c71c789b, type: 3}
---- !u!114 &3232950388626807302 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3232950388837567123, guid: f08a459f0a8fe5c4f8acd436c71c789b, type: 3}
-  m_PrefabInstance: {fileID: 3232950388626807301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d02eb80950e9ac46805693472847e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3232950388626807303 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3232950388837567122, guid: f08a459f0a8fe5c4f8acd436c71c789b, type: 3}
-  m_PrefabInstance: {fileID: 3232950388626807301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9eb85af146ea44694587990bd21c99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3331794735112465856
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -246,12 +246,37 @@ public class GameManager : MonoBehaviour
         enemyAI.Add(enemy2);
 
         StartCoroutine(MoveEnemy(enemy1));
-        StartCoroutine(MoveEnemy(enemy2));
+        StartCoroutine(MoveEnemy2(enemy2));
 
         //
     }
 
     IEnumerator MoveEnemy(GameObject enemyAI){
+        EnemyAI enemyAIs = enemyAI.GetComponent<EnemyAI>();
+        // call Player.MoveToRight every interval seconds
+        while (true)
+        {
+            float selectedDistance = enemyAIs.SelectDistance();
+
+            enemyAIs.MoveToRightScreen(selectedDistance);
+
+            if (selectedDistance != 0)
+            {
+                enemyAIs.TriggerMoveAnimation();
+                AudioManager.instance.PlayGreenSfx();
+            }
+
+            // Call the UpdatePathChecker method with the enemy index and distance
+            pathChecker.UpdatePathChecker(enemyAIs.enemyIndex, selectedDistance);
+            
+            // Debug.Log("Enemy move : " + selectedDistance);
+            yield return new WaitForSeconds(currentRoundData.enemyMoveInterval);
+
+            // Debug.Log("Enemy is : " + IsEnemyBehindPlayer(enemyAI));
+        }
+    }
+
+    IEnumerator MoveEnemy2(GameObject enemyAI){
         EnemyAI enemyAIs = enemyAI.GetComponent<EnemyAI>();
         // call Player.MoveToRight every interval seconds
         while (true)
